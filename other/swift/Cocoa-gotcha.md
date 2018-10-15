@@ -1,0 +1,1 @@
+DirtyRect is just a way to get info about the current rect etc. you dont need it to draw

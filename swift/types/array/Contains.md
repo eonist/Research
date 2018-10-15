@@ -1,0 +1,1 @@
+["man","main","ma"].contains({ $0.string == "main" }) ?? false

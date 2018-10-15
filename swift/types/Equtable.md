@@ -1,0 +1,1 @@
+https://www.andrewcbancroft.com/2015/07/01/every-swift-value-type-should-be-equatable/

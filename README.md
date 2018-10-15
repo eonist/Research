@@ -1,2 +1,3 @@
-# Research
-Research
+### Research
+
+Mostly swift notes and book reviews
