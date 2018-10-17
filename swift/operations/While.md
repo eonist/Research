@@ -8,7 +8,7 @@ repeat{
     someOptionalInt = functionThatMayReturnAnInteger()
     //change condition
     //always executed once
-    
+
 } while (someOptionalInt != nil)
 
 println("Got a nil instead")
@@ -22,7 +22,7 @@ while i < 5{
 ```
 
 
-### For loop: 
+### For loop:
 
 ```swift
 let start:Int = 0
@@ -69,7 +69,7 @@ repeat {
 } while size < 16
 ```
 
-### While loop over nth:
+### While loop over nth: 👌
 
 ```swift
 //while loop over nth

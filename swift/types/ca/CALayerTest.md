@@ -1,6 +1,28 @@
 //this is good: http://www.raywenderlich.com/90488/calayer-in-ios-with-swift-10-examples
 
-
+CALayer
+```swift
+class CardView:UIView{
+   lazy var topBar:TopBar = createTopBar()
+   let bgLayer: CALayer = {
+      let layer = CALayer()
+      layer.backgroundColor = UIColor.green.cgColor
+      return layer
+   }()
+   override init(frame: CGRect) {
+      Swift.print("CardView.init")
+      super.init(frame: frame)
+      self.backgroundColor = .gray
+      self.layer.addSublayer(bgLayer)
+      bgLayer.frame = CGRect.init(x: 12, y: 12, width: self.frame.width-24, height: self.frame.height-24)
+      bgLayer.cornerRadius = 24
+      //_ = topBar
+   }
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+}
+```
 
 
 **Properties of CALayer:**
@@ -42,7 +64,7 @@ sublayer.borderColor = [UIColor blackColor].CGColor;
 sublayer.borderWidth = 2.0;
 sublayer.cornerRadius = 10.0;
 [self.view.layer addSublayer:sublayer];
- 
+
 CALayer *imageLayer = [CALayer layer];
 imageLayer.frame = sublayer.bounds;
 imageLayer.cornerRadius = 10.0;
@@ -55,27 +77,27 @@ imageLayer.masksToBounds = YES;
 
 
 //more in the COcoa book from big nerd ranch
-//TextLayer: 
+//TextLayer:
+
 ```swift
 let textContainer = CALayer()
-        textContainer.anchorPoint = CGPoint.zeroPoint
-        textContainer.position = CGPointMake(10, 10)
-        textContainer.zPosition = 100
-        textContainer.backgroundColor = NSColor.blackColor().CGColor
-        textContainer.borderColor = NSColor.whiteColor().CGColor
-        textContainer.borderWidth = 2
-        textContainer.cornerRadius = 15
-        textContainer.shadowOpacity = 0.5
-        view.layer!.addSublayer(textContainer)
+textContainer.anchorPoint = CGPoint.zeroPoint
+textContainer.zPosition = 100
+textContainer.backgroundColor = NSColor.blackColor().CGColor
+textContainer.borderColor = NSColor.whiteColor().CGColor
+textContainer.borderWidth = 2
+textContainer.cornerRadius = 15
+textContainer.shadowOpacity = 0.5
+view.layer!.addSublayer(textContainer)
 
-        let textLayer = CATextLayer()
-        textLayer.anchorPoint = CGPoint.zeroPoint
-        textLayer.position = CGPointMake(10, 6)
-        textLayer.zPosition = 100
-        textLayer.fontSize = 24
-        textLayer.foregroundColor = NSColor.whiteColor().CGColor
-        self.textLayer = textLayer”
+let textLayer = CATextLayer()
+textLayer.anchorPoint = CGPoint.zeroPoint
+textLayer.position = CGPointMake(10, 6)
+textLayer.zPosition = 100
+textLayer.fontSize = 24
+textLayer.foregroundColor = NSColor.whiteColor().CGColor
+self.textLayer = textLayer”
 
-		   textContainer.addSublayer(textLayer)
+textContainer.addSublayer(textLayer)
 
 ```
