@@ -14,3 +14,10 @@ print(4 % 4)     // 0
 
 /*The first trace returns 2, rather than 12/5 or 2.4, because the modulo (%) operator returns only the remainder. The second trace returns 0.0999999999999996 instead of the expected 0.1 because of the limitations of floating-point accuracy in binary computing.*/
 ```
+
+
+### For CGFloat:
+
+```swift
+let normalizedX:CGFloat = x.truncatingRemainder(dividingBy: UIScreen.main.bounds.width)
+```
