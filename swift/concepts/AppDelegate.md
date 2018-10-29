@@ -1,3 +1,21 @@
+##### Compact AppDelegate for iOS
+```swift
+import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+   var window: UIWindow?
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {return true}
+   func applicationWillResignActive(_ application: UIApplication) {}
+   func applicationDidEnterBackground(_ application: UIApplication) {}
+   func applicationWillEnterForeground(_ application: UIApplication) {}
+   func applicationDidBecomeActive(_ application: UIApplication) {}
+   func applicationWillTerminate(_ application: UIApplication) {}
+}
+```
+
+### Notes on AppDelegate
+
 What are the most important application delegate methods a developer should handle ?
 
 The operating system calls specific methods within the application delegate to facilitate transitioning to and from various states. The seven most important application delegate methods a developer should handle are:
@@ -24,19 +42,3 @@ This method is called as an app is preparing to move from the background to the 
 
 **applicationWillTerminate**
 This method notifies your application delegate when a termination event has been triggered. Hitting the home button no longer quits the application. Force quitting the iOS app, or shutting down the device triggers the applicationWillTerminate method. This is the opportunity to save the application configuration, settings, and user preferences.
-
-##### Compact AppDelegate for iOS
-```swift
-import UIKit
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-   var window: UIWindow?
-   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {return true}
-   func applicationWillResignActive(_ application: UIApplication) {}
-   func applicationDidEnterBackground(_ application: UIApplication) {}
-   func applicationWillEnterForeground(_ application: UIApplication) {}
-   func applicationDidBecomeActive(_ application: UIApplication) {}
-   func applicationWillTerminate(_ application: UIApplication) {}
-}
-```

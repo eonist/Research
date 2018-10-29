@@ -65,7 +65,10 @@ let arr:[Int] = [1,2,2,2,3,3,1].reduce([]) { (a:[Int],b:Int) in
 }
 arr//1,2,3
 ```
-
+### Reducing an array of Tuples in
+```swift
+let arr:[Int] = [(0,""),(1,"")].reduce([]) { $0 + [$1.0] }
+```
 
 ### Reducing a Dictionary into a String:
 ```swift
@@ -74,5 +77,5 @@ let dict = ["John":"🔵","Donna":"🔴"]
 let str = dict.reduce("") {
     return $0 + "\($1.key) likes the color: \($1.value) "
 }   
-Swift.print(str)//Donna likes the color: 🔴 John likes the color: 🔵 
+Swift.print(str)//Donna likes the color: 🔴 John likes the color: 🔵
 ```
