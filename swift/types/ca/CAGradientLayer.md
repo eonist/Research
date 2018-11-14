@@ -1,5 +1,9 @@
+```swift
+/*
+ * IMPORTANT: ⚠️️ gradient.colors is of type any, so remember to do UIColor.green.cgColor
+ */
 class View:UIView{
-	let gradientLayer: CAGradientLayer = {
+	lazy var gradientLayer: CAGradientLayer = {
       let layer = CAGradientLayer()
       layer.colors = [
          UIColor.red.cgColor,
@@ -11,9 +15,9 @@ class View:UIView{
       Swift.print("CardView.init")
       super.init(frame: frame)
       self.backgroundColor = .gray
-      self.layer.addSublayer(gradientLayer)
+      self.layer.addSublayer(gradientLayer)//view.layer.insertSublayer(gradient, at: 0)
       gradientLayer.frame = CGRect.init(x: 12, y: 12, width: self.frame.width-24, height: self.frame.height-24)
       gradientLayer.cornerRadius = 24
-      //_ = topBar
    }
 }
+```

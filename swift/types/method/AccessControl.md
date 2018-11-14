@@ -3,12 +3,10 @@
 //By default, every function and variable is internal — if you want to change that, you have to use the private or public keyword in front of every single method and variable:
 
 ### Frameworks:
-
 open is the same as public except it is overridable
 
 ```swift
 open class Test {//works with import, overridable
-
 }
 public class Tester{//works with import
    public func test(){

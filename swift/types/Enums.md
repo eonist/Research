@@ -282,7 +282,7 @@ enum Suit:String {
 swift.print(Suit.spades.rawValue)//"♠"
 
 
-#### Strin to enum:
+#### String to enum:
 
 enum Foo: String {
    case a, b, c, d
