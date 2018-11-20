@@ -109,9 +109,8 @@ dunamicButton.frame = CGRectMake(100, 100, 100, 50)
 dunamicButton.addTarget(self, action: "buttonTouched:", forControlEvents: UIControlEvents.TouchUpInside)
 self.view.addSubview(dunamicButton)
 
-func buttonTouched(sender:UIButton!)
-{
-println("It Works!!!")
+func buttonTouched(sender:UIButton!) {
+   print("It Works!!!")
 }
 ```
 link: http://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
