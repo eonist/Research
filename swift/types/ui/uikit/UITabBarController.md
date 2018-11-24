@@ -1,24 +1,41 @@
-## Add tabs programmatically in UITabBarController with swift
+## Add a tabbar programmatically in UITabBarController with swift
 
 ```swift
-func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        // Override point for customization after application launch.
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+   // Override point for customization after application launch.
+   self.window = UIWindow(frame: UIScreen.main.bounds)
 
-        var nav1 = UINavigationController()
-        var first = FirstViewController(nibName: nil, bundle: nil)
-        nav1.viewControllers = [first]
+   let nav1 = UINavigationController()
+   let first = FirstViewController(nibName: nil, bundle: nil)
+   nav1.viewControllers = [first]
 
-        var second = SecondViewController(nibName: nil, bundle: nil)
-        var nav2 = UINavigationController()
-        nav2.viewControllers = [second]
+   let second = SecondViewController(nibName: nil, bundle: nil)
+   let nav2 = UINavigationController()
+   nav2.viewControllers = [second]
 
-        var tabs = UITabBarController()
-        tabs.viewControllers = [nav1, nav2]
+   let tabBar = UITabBarController()
+   tabBar.tabBar.tintColor = .purple
+   tabBar.viewControllers = [nav1, nav2]
 
-        self.window!.rootViewController = tabs;
-        self.window?.makeKeyAndVisible();
+   first.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
+   second.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+//      tabBar.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
 
-        return true
-    }
+   self.window?.rootViewController = tabBar
+   self.window?.makeKeyAndVisible()
+
+   return true
+}
+class FirstViewController:UIViewController{
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      view.backgroundColor = .orange
+   }
+}
+class SecondViewController:UIViewController{
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      view.backgroundColor = .green
+   }
+}
 ```
