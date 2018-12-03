@@ -1,4 +1,4 @@
-using error in async code: http://alisoftware.github.io/swift/async/error/2016/02/06/async-errors/
+Using error in async code: http://alisoftware.github.io/swift/async/error/2016/02/06/async-errors/
 
 
 project
@@ -56,13 +56,13 @@ enum AwfulError: Error {
 func doDangerousStuff() throws -> String {
     // If something bad happens throw the error:
     throw AwfulError.Bad
-    
+
     // If something worse happens, throw another error:
     throw AwfulError.Worse
-    
+
     // If something terrible happens, you know what to do:
     throw AwfulError.Terrible
-    
+
     // If you made it here, you can return:
     return "some data"
 }
@@ -110,10 +110,10 @@ func test3(){
     throw {
         try rideTheDragon(quest.dragon)
     }
-    
-    
+
+
     throw DragonError.DragonIsMissing
-    
+
     enum DragonError: ErrorType {
         case DragonIsMissing
         case NotEnoughMana(manaRequired: Int)
@@ -163,22 +163,22 @@ func testing(){
 }
 //a class example
 class SecureStore {
-    
+
     func storeData(data: NSData, path: String) throws -> String {
         // Some logic goes here...
         // More logic...
-        
+
         // Ooops, directory not exist, throw error
         throw SecureStoreError.DirectoryNotExist
-        
+
         // the code here is executed when directory exist.
-        
+
         // checking rights...
         // Oops, no write-rights, throw error
         throw SecureStoreError.NoRights
-        
+
         // We've got rights
-        
+
         // Saving logic goes here
         // Generates some identifier for stored data
         // This will be only returned if method didn't throw above.
@@ -361,9 +361,9 @@ do {
 }
 
 
-//switch on case (and on message): 
+//switch on case (and on message):
 
- 
+
 do {
     try test(color:.blue)
 } catch let error as RuntimeError where error.message == "I like all other colors"{
@@ -457,7 +457,7 @@ func loginUserWithUsername(username: String?, password: String?) throws -> Strin
     guard let username = username where username.characters.count != 0 else {
         throw LoginError.EmptyUsername
     }
-    
+
     guard let password = password where password.characters.count != 0 else {
         throw LoginError.EmptyPassword
     }
@@ -466,7 +466,7 @@ func loginUserWithUsername(username: String?, password: String?) throws -> Strin
 }
 
 func login() {
-    
+
     do {
         let token = try loginUserWithUsername("konrad1977", password: nil)
         print("user logged in \(token)")
@@ -480,7 +480,7 @@ func login() {
 }
 ```
 
-//nicer example: 
+//nicer example:
 
 ```swift
 extension LoginError : CustomStringConvertible {
@@ -488,7 +488,7 @@ extension LoginError : CustomStringConvertible {
         switch self {
             case .EmptyUsername:
                 return "Username cannot be empty"
-            
+
             case .EmptyPassword:
                 return "Password cannot be empty"
         }
@@ -496,7 +496,7 @@ extension LoginError : CustomStringConvertible {
 }
 
 func login() {
-    
+
     do {
         let token = try loginUserWithUsername("konrad1977", password: nil)
         print("user logged in \(token)")
@@ -524,20 +524,20 @@ func doSomethingMagical(magicalOperation:MagicalOperation) rethrows -> MagicalRe
 ```
 
 
-//switching: 
+//switching:
 
 
 ```swift
 func retrieveFailureDetails(from error: ChangoSpellError) -> String {
  var details = ""
-   
+
     switch error {
     case .hatMissingOrNotMagical:
         details = "Did you forget your hat, or does it need its batteries charged?"
-        
+
     case .familiarAlreadyAToad:
         details = "Why are you trying to change a Toad into a Toad?"
-        
+
     default: break
     }
     return details
@@ -545,7 +545,7 @@ func retrieveFailureDetails(from error: ChangoSpellError) -> String {
 ```
 
 
-//Advance custom error: 
+//Advance custom error:
 
 
 ```swift
