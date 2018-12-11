@@ -1,3 +1,82 @@
+Row based uitableview
+
+```swift
+
+class CustomTableView:UITableView,UITableViewDelegate,UITableViewDataSource {
+  let rowData:[String]
+  /*Init*/
+  init(rowData:[String], frame:CGRect, style:UITableView.Style){
+     self.rowData = rowData
+     super.init(frame: frame, style: style)
+     registerCells()/*Registers Cell types*/
+
+     self.dataSource = self
+     self.delegate = self
+
+     self.backgroundColor = .purple
+     self.backgroundView?.backgroundColor = .gray
+
+  }
+  /**
+   * Boilerplate
+   */
+  required init?(coder aDecoder: NSCoder) {
+     fatalError("init(coder:) has not been implemented")
+  }
+}
+extension CustomTableView{
+  /**
+   * Returns row count in a section
+   */
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     return rowData.count
+  }
+  /**
+   * Creates/Recycles cells
+   */
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//      let rowIndex:Int =
+     let cell:UITableViewCell = {
+        switch indexPath.row {
+        case 0:
+           guard let cell:CustomCell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath as IndexPath) as? CustomCell else {fatalError("err")}
+           //cell.title = rowData[indexPath.row]
+           cell.backgroundColor = .orange
+           return cell as CustomCell
+        default:
+           guard let cell:AnotherCustomCell = tableView.dequeueReusableCell(withIdentifier: "\(AnotherCustomCell.self)", for: indexPath as IndexPath) as? AnotherCustomCell else {fatalError("err")}
+//            cell.title = rowData[indexPath.row]
+           cell.backgroundColor = .green
+           return cell as AnotherCustomCell
+        }
+     }()
+     return cell
+  }
+  /**
+   * Returns the height of each cell
+   */
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+     switch indexPath.row {
+     case 0: return 128//fatalError("")
+     default: return 96//fatalError("")
+//      case is 0:
+//      return 128
+//      default:
+//
+     }
+  }
+  func registerCells() {
+     self.register(CustomCell.self, forCellReuseIdentifier: "\(CustomCell.self)")
+     self.register(AnotherCustomCell.self, forCellReuseIdentifier: "\(AnotherCustomCell.self)")
+  }
+}
+
+class CustomCell:UITableViewCell {}
+class AnotherCustomCell:UITableViewCell {}
+
+```
+
+
 Tranclucent popover:
 
 ```swift
@@ -9,7 +88,7 @@ Tranclucent popover:
 extension UITableViewController{
     var effect:UIBlurEffect {return UIBlurEffect(style: .extraLight)}
     var resizingMask:UInt8 {return UInt8(UIViewAutoresizing.flexibleWidth.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue)}
-    
+
     //BGStyling
     private var buildBlurView:UIVisualEffectView {
         let blurView = UIVisualEffectView(effect: effect)
@@ -37,7 +116,7 @@ extension UITableViewController{
 
 ```swift
 /**
- * 
+ *
  */
 class FadeOutSegue:UIStoryboardSegue{
     let duration: TimeInterval = 0.5
