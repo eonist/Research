@@ -9,8 +9,6 @@ textField.textAlignment = .center
 textField.font = .boldSystemFont(ofSize: 16)
 ```
 
-
-
 ### UITextField
 
 ```swift
