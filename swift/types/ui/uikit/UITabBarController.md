@@ -1,41 +1,79 @@
 ## Add a tabbar programmatically in UITabBarController with swift
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-   // Override point for customization after application launch.
-   self.window = UIWindow(frame: UIScreen.main.bounds)
 
-   let nav1 = UINavigationController()
-   let first = FirstViewController(nibName: nil, bundle: nil)
-   nav1.viewControllers = [first]
+import UIKit
 
-   let second = SecondViewController(nibName: nil, bundle: nil)
-   let nav2 = UINavigationController()
-   nav2.viewControllers = [second]
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-   let tabBar = UITabBarController()
-   tabBar.tabBar.tintColor = .purple
-   tabBar.viewControllers = [nav1, nav2]
+   var window: UIWindow?
 
-   first.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
-   second.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
-//      tabBar.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+       createTBC()
+      return true
+   }
+}
+extension AppDelegate{
+   /**
+    * TabBarController
+    */
+   func createTBC(){
+      self.window = UIWindow(frame: UIScreen.main.bounds)
 
-   self.window?.rootViewController = tabBar
-   self.window?.makeKeyAndVisible()
+      let nav1:UINavigationController = {
+         let nav = UINavigationController()
+         let vc = FirstViewController(nibName: nil, bundle: nil)
+         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)//,more,favorites,featured,topRated,recents,contacts,history,bookmarks,search,downloads,mostRecent,mostViewed
+         nav.viewControllers = [vc]
+         return nav
+      }()
+      let nav2:UINavigationController = {
+         let nav:UINavigationController = .init()
+         let vc = SecondViewController(nibName: nil, bundle: nil)
+         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+         nav.viewControllers = [vc]
+         return nav
+      }()
+      let nav3:UINavigationController = {
+         let nav:UINavigationController = .init()
+         let vc = ThirdViewController(nibName: nil, bundle: nil)
+         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
+         nav.viewControllers = [vc]
+         return nav
+      }()
+      let tabBar:UITabBarController = {
+         let tbc = UITabBarController()
+         tbc.tabBar.tintColor = .black
+         tbc.tabBar.barTintColor = .white
+         tbc.viewControllers = [nav1, nav2, nav3]
+         return tbc
+      }()
 
-   return true
+      self.window?.rootViewController = tabBar
+      self.window?.makeKeyAndVisible()
+   }
 }
 class FirstViewController:UIViewController{
    override func viewDidLoad() {
       super.viewDidLoad()
-      view.backgroundColor = .orange
+      self.title = "First"
+      view.backgroundColor = .white
    }
 }
 class SecondViewController:UIViewController{
    override func viewDidLoad() {
       super.viewDidLoad()
-      view.backgroundColor = .green
+      self.title = "Second"
+      view.backgroundColor = .white
    }
 }
+class ThirdViewController:UIViewController{
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      self.title = "Third"
+      view.backgroundColor = .white
+   }
+}
+
 ```
