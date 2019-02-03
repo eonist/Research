@@ -17,9 +17,9 @@ git status
 7. Keep all local file changes: **"git checkout --ours *"** (you may replace the * char with a file or path)
 8. Keep all remote file changes: **"git checkout --theirs *"** (you may replace the * char with a file or path)
 9. Then add, commit and push
-10. The commit history will now display remote commit, local commit, merge commit. 
+10. The commit history will now display remote commit, local commit, merge commit.
 
-#### To manually clone into a populated folder: 
+#### To manually clone into a populated folder:
 1. git init
 2. add and commit your files
 3. attach remote origin  
@@ -27,7 +27,7 @@ git status
 Then do the exact same steps as you do in the "Merge local to remote workflow"
 
 
-#### **Use git as a local file merge tool:** 
+#### **Use git as a local file merge tool:**
 Basically you are doing this: repoA -> repoX (remote) ->repoB    
 Pretext: I have a huge code lib that i recently updated a lot of comments in from my ipad. Pre GitSync era. Now i want to merge back together with the lib on my MacBook.  I can create a private repo on bitbucket, but I don't quite trust bitbucket with this code lib. So why not do it locally? We are using Github desktop app for doing the merging because it has a pretty good visual code diff feature. We use terminal to setup the "faux remote git"
 
@@ -39,10 +39,13 @@ git --bare init
 ```
 2. then you create 2 repos from the github desktop app named: "repoA" and "repoB" (use the add button)
 3. you then click the repo properties for both repoA and repoB and set their remote to the path of repoX: "~/Desktop/del/repo2.git"
-4. Add a file in repoA and publish it with the github desktop app. 
+4. Add a file in repoA and publish it with the github desktop app.
 5. in repoB click sync in the github desktop app. and you will now get the file originally from repoA
-6. Now the great thing about this is that you can add many files to repoA and then commit and sync from GitHub Desktop App and then in repoB you will get a nice visual feedback about the textual changes additions in green and subtractions of text as red. 
-7. To avoid messing with checking out previous commits if you don't like a change etc. I recommend just keeping a stash of the new and old code lib and then just copy paste in any file you didn't like. Basically copy the old one or the new one, which ever you liked the most. Very non-destructive. Merging rebasing, checking out etc is not easy and can very quickly go astray. And its cognitively tasking, when you should focus on getting the right changes etc. 
+6. Now the great thing about this is that you can add many files to repoA and then commit and sync from GitHub Desktop App and then in repoB you will get a nice visual feedback about the textual changes additions in green and subtractions of text as red.
+7. To avoid messing with checking out previous commits if you don't like a change etc. I recommend just keeping a stash of the new and old code lib and then just copy paste in any file you didn't like. Basically copy the old one or the new one, which ever you liked the most. Very non-destructive. Merging rebasing, checking out etc is not easy and can very quickly go astray. And its cognitively tasking, when you should focus on getting the right changes etc.
 
-**Note:** Actually you may only need RepoA and then a RepoB that you set as remote. when you feed in old code files into repoA and then commit to RepoB, and then just replace these files in repoA with the "new " files, you will get a visual feedback of what has changed. This simplifies things. the approach described above is still valid. just replace repoB with repoX and you are good. 
+**Note:** Actually you may only need RepoA and then a RepoB that you set as remote. when you feed in old code files into repoA and then commit to RepoB, and then just replace these files in repoA with the "new " files, you will get a visual feedback of what has changed. This simplifies things. the approach described above is still valid. just replace repoB with repoX and you are good.
 
+## Remove last commit from github
+git reset --soft HEAD^
+git push origin +master --force

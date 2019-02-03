@@ -1,7 +1,7 @@
 ```swift
-#proj
+#if os(iOS)
     var image: UIImage?
-#elseif os(OSX)
+#elseif os(macOS)
     var image: NSImage?
 #endif
 ```

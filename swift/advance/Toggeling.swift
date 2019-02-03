@@ -5,7 +5,7 @@
 #if os(iOS)
     import UIKit
     typealias SWColor = UIColor
-    #else
+#else os(macOS)
     import Cocoa
     typealias SWColor = NSColor
 #endif

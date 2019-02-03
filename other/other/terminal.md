@@ -17,6 +17,6 @@ touch text.txt
 Type: `open..` + enter could be `open .`
 
 ### Add 2fa to Terminal
-1. git clone https://github.com/eonist/Popsicle.git
+1. git clone https://github.com/eonist/SomePrivateRepo.git
 2. enter user name
 3. enter access token as password (github->settings->dev settings->personal token)
