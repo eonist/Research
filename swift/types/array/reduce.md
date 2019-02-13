@@ -10,6 +10,12 @@ let s:String = [1,2,3].reduce(""){"\($0)" + "\($1)"}
 Swift.print("s: " + "\(s)")
 ```
 
+### shorter version
+
+```swift
+[0,1,1,0].map{"\($0)"}.reduce("",+)//"0110"
+```
+
 ### Reduce into tuple w/ two arrays
 ```swift
 typealias Acc = (l: [Int], r: [Int])
