@@ -8,6 +8,8 @@ Swift.print("res: " + "\(res)")//("abc","123")
 ```swift
 let s:String = [1,2,3].reduce(""){"\($0)" + "\($1)"}
 Swift.print("s: " + "\(s)")
+//alternative:
+let str = ["1", "2", "3"].joined(separator:"")
 ```
 
 ### shorter version
