@@ -1,6 +1,8 @@
 ### Examples:
 
 ```swift
+//THis is like do while in other languages
+
 var someOptionalInt: Int?
 
 repeat{
