@@ -9,11 +9,11 @@ var a : Int = 0 {
 	didSet{//after
 	    print("didSet called: \(a)")
 	}
-	
+
 }
 
 a = 2
- 
+
 ```
 
 ### same as:
@@ -29,4 +29,25 @@ class Foo {
         }
     }
 }
+```
+
+### DidSet does not fire if its set on init:
+
+```swift
+class Tester{
+   var temp:String = "yo"{
+      didSet{
+         Swift.print("temp:  \(temp)")
+      }
+   }
+   init(temp:String){
+      self.temp = temp
+   }
+}
+let tester = Tester.init(temp: "work")
+Swift.print("tester.temp:  \(tester.temp)")
+tester.temp = "new"
+
+// tester.temp:  work
+// temp:  new
 ```
