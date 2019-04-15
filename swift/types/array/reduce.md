@@ -93,3 +93,16 @@ let str = dict.reduce("") {
 }   
 Swift.print(str)//Donna likes the color: 🔴 John likes the color: 🔵
 ```
+
+
+### Unique reduce:
+```swift
+Set([55,4,5,3,3,4].map { $0 })//[4, 3, 5, 55]
+```
+
+### Reduce to find longest string:
+```swift
+let strings: [String?] = ["Red", "Orange", nil, "Blue"]
+var longestString: String = strings.compactMap{$0}.reduce(""){$0.count > $1.count ? $0 : $1}
+Swift.print("longestString:  \(longestString)")//orange
+```

@@ -95,7 +95,6 @@ Very good: https://www.atlassian.com/git/tutorials And also the git pocket ref b
 ``git tag 0.0.0-alpha.1`` adds a tag
 ``git push origin --tags`` uploads tags to remote
 
-
 ### Stash:
 git stash (moves tracked to a hidden stash folder)
 git stash pop (moves the files back)
@@ -103,9 +102,7 @@ NOTE: adding -u will also include untracked changes
 NOTE: adding -a will also include ignored files
 
 
-
 ### Checkout
-
 git checkout 530121b6fab13fcb4e8b210120ff585d1e2228ea
 
 ### Reset
@@ -114,3 +111,16 @@ git reset --hard 530121b6fab13fcb4e8b210120ff585d1e2228ea
 
 ### Revert
 git revert 530121b6fab13fcb4e8b210120ff585d1e2228ea
+
+### Merging Detached head
+- Create temporary branch for your detached head
+`git branch tmp`
+
+- Go to master
+`git checkout master`
+
+- Merge in commits from previously detached head
+`git merge tmp`
+
+- Delete temproary branch
+`git branch -d tmp`
