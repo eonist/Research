@@ -5,7 +5,7 @@ more here: https://appventure.me/2015/10/17/advanced-practical-enum-examples/
 
 ```swift
 enum Numbers: Int {
-	case One = 1, Two, Three, Four, Five
+	case one = 1, two, three, four
 }
 
 let value = Numbers.Three

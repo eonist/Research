@@ -29,3 +29,6 @@ textFiled.borderStyle = UITextBorderStyle.Line
 self.view.addSubview(textFiled)
 ```
 link: http://stackoverflow.com/questions/24710041/adding-uitextfield-on-uiview-programmatically-swift
+
+### Adding left or right icon int he textfield
+If you need to get fancy you can add a little view on the right or left of the text field. According to Apple, “You can use the left overlay view to indicate the intended behavior of the text field, You can use the right overlay view to provide indicate additional features available for the text field
