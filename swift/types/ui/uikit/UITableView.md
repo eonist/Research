@@ -1,21 +1,19 @@
-Row based uitableview
+## Row based UITabelView
 
 ```swift
-
-class CustomTableView:UITableView,UITableViewDelegate,UITableViewDataSource {
-  let rowData:[String]
+class CustomTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+  let rowData: [String]
   /*Init*/
-  init(rowData:[String], frame:CGRect, style:UITableView.Style){
+  init(rowData: [String], frame: CGRect, style: UITableView.Style){
      self.rowData = rowData
      super.init(frame: frame, style: style)
-     registerCells()/*Registers Cell types*/
+     registerCells( )/* Registers Cell types */
 
      self.dataSource = self
      self.delegate = self
 
      self.backgroundColor = .purple
      self.backgroundView?.backgroundColor = .gray
-
   }
   /**
    * Boilerplate
@@ -24,6 +22,9 @@ class CustomTableView:UITableView,UITableViewDelegate,UITableViewDataSource {
      fatalError("init(coder:) has not been implemented")
   }
 }
+/**
+ * Cell
+ */
 extension CustomTableView{
   /**
    * Returns row count in a section
@@ -36,12 +37,12 @@ extension CustomTableView{
    */
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //      let rowIndex:Int =
-     let cell:UITableViewCell = {
+     let cell: UITableViewCell = {
         switch indexPath.row {
         case 0:
-           guard let cell:CustomCell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath as IndexPath) as? CustomCell else {fatalError("err")}
+           guard let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath as IndexPath) as? CustomCell else {fatalError("err")}
            //cell.title = rowData[indexPath.row]
-           cell.backgroundColor = .orange
+           cell.backgroundColor = .orange // debug
            return cell as CustomCell
         default:
            guard let cell:AnotherCustomCell = tableView.dequeueReusableCell(withIdentifier: "\(AnotherCustomCell.self)", for: indexPath as IndexPath) as? AnotherCustomCell else {fatalError("err")}
@@ -76,8 +77,7 @@ class AnotherCustomCell:UITableViewCell {}
 
 ```
 
-
-Tranclucent popover:
+## UITableView with Translucent popover:
 
 ```swift
 /**
@@ -90,7 +90,7 @@ extension UITableViewController{
     var resizingMask:UInt8 {return UInt8(UIViewAutoresizing.flexibleWidth.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue)}
 
     //BGStyling
-    private var buildBlurView:UIVisualEffectView {
+    private var buildBlurView: UIVisualEffectView {
         let blurView = UIVisualEffectView(effect: effect)
         blurView.frame = view.bounds
         blurView.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(resizingMask))

@@ -1,4 +1,4 @@
-Video source: 
+Video source:
 There is an apple video about View based table view. its mentioned in session 217 44:14 Layerbacked views
 
 // example of tableview with custom design? https://developer.apple.com/library/mac/samplecode/TableViewPlayground/TableViewPlayground.zip
@@ -14,6 +14,9 @@ There is an apple video about View based table view. its mentioned in session 21
 //https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSTableDataSource_Protocol/index.html#//apple_ref/occ/intfm/NSTableViewDataSource/tableView:objectValueForTableColumn:row:
 
 //https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html#//apple_ref/doc/uid/10000026i
+
+
+```swift
 
 /**
 Drag and droping in NSViewTable: (Awesome)
@@ -43,8 +46,8 @@ func test(){
         }
         return cell
     }
-	 
-	 
+
+
 	 //Sorting:
 	 /*
 	 Sorting a Table View
@@ -55,7 +58,7 @@ func test(){
 		When a table column header is clicked, the table view’s data source receives a tableView(sortDescriptorsDidChange:) message. A sort descriptor is an instance of the NSSortDescriptor class, which provides information on how a collection of objects should be sorted.
 		To sort an array using sort descriptors, you take the array, and use the sort method. This method takes a closure that it uses to work out how a pair of objects is ordered; you can simple take each sort descriptor, and use its compareObject(toObject:)”
 
-		
+
 	 */
 	 //To implement the tableView(sortDescriptorsDidChange:) method, add the following method to AppDelegate:
     func tableView(tableView: NSTableView!,
@@ -75,4 +78,6 @@ func test(){
         tableView.reloadData()
     }
 }
-    
+
+
+```
