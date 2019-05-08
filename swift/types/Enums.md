@@ -294,7 +294,7 @@ assert(a == Foo.a)
 
 #### Nested enums:
 ```swift
-enum State{
+enum State {
      enum Normal{
          case search
          case idle
@@ -303,19 +303,23 @@ enum State{
      case hidden
  }
  /**
-  * New
+  * Set state
+	* ## Examples:
+	* setState(.normal(.idle))//🤷
+	* setState(.normal(.idle))//🚀
+	* setState(.normal(.idle))//🤦
   */
  func setState(_ state:State){
      switch state {
      case .normal(let normal):
          switch normal {
          case .idle:
-              _ = ""
+              print("🤷")
          case .search:
-              _ = ""
+              print("🚀")
          }
      case .hidden:
-         _ = ""
+         print("🤦")
      }
  }
 ```
