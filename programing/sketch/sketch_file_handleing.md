@@ -36,14 +36,12 @@ var removeFileOrFolder = function(filePath) {
 ```
 
 
-## Read text from file:
+## Read text from file: (works ✅)  
 
 ```javascript
 //create panel for user to select file
 var open = NSOpenPanel.openPanel();
-var fileTypes = [NSArray arrayWithObjects:@"json",nil];
 
-open.setAllowedFileTypes(fileTypes);
 open.setCanChooseDirectories(true);
 open.setCanChooseFiles(true);
 open.setCanCreateDirectories(true);
@@ -54,4 +52,5 @@ open.runModal();
 //import the selected file and parse to JSON object
 var filePath = open.URLs().firstObject().path();
 var fileContents = NSString.stringWithContentsOfFile(filePath);
+log("filePath: " + filePath); // filePath: /Users/eon/Desktop/Screenshot 2019-05-11 at 21.42.06.png
 ```

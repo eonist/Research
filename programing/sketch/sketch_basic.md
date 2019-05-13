@@ -19,6 +19,7 @@ log(layerFrame.height()) // 80
 log(layerFrame.x()) // 80
 log(layerFrame.y()) // 80
 var layerFills = layer.style().fills();
+var styleID = layer.style().objectID();// if the layer has a style applied
 log("LayerFill: " + layerFills) // MSStyleFill
 log("fillColor: " + layerFills[0].color();) // (r:1.000000 g:0.000000 b:0.000000 a:1.000000)
 var fillColor = layerFills[0].color();

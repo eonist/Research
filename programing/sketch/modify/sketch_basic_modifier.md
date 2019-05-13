@@ -11,6 +11,16 @@ layer.setRotation(newLayerRotation);// rotates the layer
 layer.setIsFlippedHorizontal(!layer.isFlippedHorizontal());
 layer.setIsFlippedVertical(!layer.isFlippedVertical());
 layer.setIsSelected(!layer.isSelected()); //selects the layer
+
+log(layer.frame) // frame
+log(layer.origin) // point
+layer.origin = {x:20,y:20} // sets position of shape
+var layer = context.selection[0]
+layer.frame().setWidth(100);
+layer.frame().setHeight(100);
+layer.frame().setX(0)
+layer.frame().setY(0)
+
 layer.duplicate(); // duplicates a layer
 
 if (layer) { layer.multiplyBy(2.0); }
@@ -33,36 +43,6 @@ export const BlurType = {
 };
 ```
 
-## Setting an image to a shape:
-
-```javascript
-const FillType = { Solid: 0, Gradient: 1, Pattern: 4, Noise: 5 };
-const PatternFillType = { Tile: 0, Fill: 1, Stretch: 2, Fit: 3};
-
-function loadLocalImage(filePath) {
-    if(!NSFileManager.defaultManager().fileExistsAtPath(filePath)) {
-        return null;
-    }
-
-    return NSImage.alloc().initWithContentsOfFile(filePath);
-}
-
-var layer = context.selection.firstObject();
-if(layer && layer.style().firstEnabledFill()) {
-   const fill = layer.style().firstEnabledFill()
-    var image = loadLocalImage("/Applications/Sketch.app/Contents/Resources/app.icns");
-    if(image) {
-        fill.fillType = FillType.Pattern;
-        fill.patternFillType = PatternFillType.Fill;
-        fill.image = MSImageData.alloc().initWithImage(image);
-
-    } else {
-        context.document.showMessage("[erorr]: Can't load image!");
-    }
-} else {
-    context.document.showMessage("[error]: Select a layer that has at least one fill style");
-}
-```
 
 ## Adding a shape to group:
 
@@ -74,17 +54,4 @@ fill.color = MSColor.colorWithRGBADictionary({r: 0.8, g: 0.1, b: 0.1, a: 1});
 var documentData = context.document.documentData();
 var currentParentGroup = documentData.currentPage().currentArtboard() || documentData.currentPage()
 currentParentGroup.addLayers([shape]);
-```
-
-## Add a circle to group:
-
-```javascript
-var ovalShape = MSOvalShape.alloc().init();
-ovalShape.frame = MSRect.rectWithRect(NSMakeRect(0,0,100,100));
-
-var shapeGroup=MSShapeGroup.shapeWithPath(ovalShape);
-var fill = shapeGroup.style().addStylePartOfType(0);
-fill.color = MSColor.colorWithRGBADictionary({r: 0.8, g: 0.1, b: 0.1, a: 1});
-
-context.document.currentPage().addLayers([shapeGroup]);
 ```

@@ -3,14 +3,11 @@
 ```javascript
 var selection = context.selection;
 for(var i = 0; i < selection.count(); i++){
-
 	var layer = selection[i];
 	var layerIsLocked = layer.isLocked();
-
 	if(layerIsLocked == true){
 	  layer.setIsLocked(false);
 	}
-
 }
 ```
 
