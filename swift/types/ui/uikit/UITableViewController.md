@@ -4,7 +4,7 @@ boilerplate TableViewController code:
 /**
  * ⚠️️ Don't forget to add "Cell" to the StoryBoard cell reuse identifier
  */
-class TableViewController:UITableViewController{
+class TableViewController: UITableViewController {
     let list:[String] = ["red","blue","green"]
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
