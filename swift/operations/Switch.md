@@ -43,7 +43,7 @@ for thing in things {
     }
 }
 ```
- 
+
 // zero as an Int
 // zero as a Double
 // an integer value of 42
@@ -94,7 +94,7 @@ switch index {
 }
 ```
 
-//switch on a tuple: 
+//switch on a tuple:
 
 The usual rules for the Fizz buzz game are to replace every multiple of 3 by "Fizz", every multiple of 5 by "Buzz", and every multiple of both 3 and 5 by "Fizz Buzz".
 
@@ -206,7 +206,7 @@ enum Direction {
 }
 let myDir = Direction.West
 switch myDir {
-    case .North: println("you're going north") 
+    case .North: println("you're going north")
     case .South: println("you're going south")
     case .West: println("you're going west")
     case .East: println("you're going east")
@@ -361,5 +361,16 @@ if case Nav.ViewType.dialog( _) = viewType{
     Swift.print("🏀")
 }else if case Nav.ViewType.main( _ ) = viewType{
     Swift.print("🍏")
+}
+```
+
+### Switch example (using type):
+
+```swift
+switch data {
+case is PrimaryCellData: Swift.print("someValue")
+case is SecondaryCellData: Swift.print("someValue")
+case is TertiaryCellData: Swift.print("someValue")
+default: UITableViewCell.init()
 }
 ```
