@@ -1,5 +1,7 @@
 ## Show message (in document):
+// has a lot of dialog box code: https://raw.githubusercontent.com/lewishowles/sketch-replace-colour/master/ReplaceColour.sketchplugin/Contents/Sketch/script.cocoascript
 
+// source code for Alert: https://github.com/ccgus/CocoaScript/blob/master/src/framework/COSAlertWindow.m
 ```javascript
 var doc = context.document;
 doc.showMessage(layer.name());
@@ -33,7 +35,7 @@ if ( [openDlg runModalForDirectory:nil file:nil] == NSOKButton ){
 }
 ```
 
-## Show open folder dialog box:
+## Show open folder dialog box: (🚫 Doesnt work)
 
 ```javascript
 var openDlg = [NSOpenPanel openPanel];
@@ -193,4 +195,14 @@ var choice = createPanel("hello world","~/Documents")
      break;
  }
 };
+```
+
+
+### Customize the Dialog icon:
+
+```javascript
+alert.icon = loadLocalImage({
+    scriptPath: scriptPath,
+    filePath: "Contents/Resources/logo.png"
+});
 ```
