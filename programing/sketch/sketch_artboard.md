@@ -17,7 +17,6 @@ for(var i = 0; i < selection.length; i++) {
 ## Get artboards:
 
 ```javascript
-
 var getAllArtboardNames = function(context) {
     let pages = context.document.pages();
     var names = []
