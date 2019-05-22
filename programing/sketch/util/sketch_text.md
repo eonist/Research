@@ -41,6 +41,8 @@ function createTextShape(textString){
 createTextShape("Black text\nAnother line")
 ```
 
+###
+
 
 ## Edit text:
 
@@ -105,4 +107,16 @@ var sketch = context.api();
   style.setTextStyle_(textStyle);
 
 text.sketchObject.style = style
+```
+
+
+### Make text upper or lowercase:
+
+```javascript
+// 0 = No transform
+// 1 = Uppercase
+// 2 = Lowercase
+layer.setTextTransform_range(1, NSMakeRange(0, layer.stringValue().length()))
+//or
+textLayer.addAttribute_value("MSAttributedStringTextTransformAttribute", 1)
 ```

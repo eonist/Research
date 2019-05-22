@@ -43,7 +43,6 @@ var rectangle = new Shape({
 });
 ```
 
-
 ## Add a circle to group:
 ```javascript
 var ovalShape = MSOvalShape.alloc().init();
