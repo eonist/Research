@@ -52,3 +52,10 @@ if (selectedCount == 0) {
   }
 };
 ```
+
+## Make layer:
+
+```js
+var rect = NSMakeRect(0, 0, 100, 100)
+var rectangle = MSRectangleShape.alloc().initWithFrame(rect)
+```

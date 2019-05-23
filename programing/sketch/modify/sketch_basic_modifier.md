@@ -35,7 +35,7 @@ artboardFrame.setHeight(300); // sets the height of the artboard with
 
 ## Blur
 ```javascript
-export const BlurType = {
+const BlurType = {
     GaussianBlur: 0,
     MotionBlur: 1,
     ZoomBlur: 2,

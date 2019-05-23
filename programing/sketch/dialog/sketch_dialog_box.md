@@ -206,3 +206,44 @@ alert.icon = loadLocalImage({
     filePath: "Contents/Resources/logo.png"
 });
 ```
+
+
+###Dialog with response handler
+
+```js
+function createDialogWindow(context) {
+
+  // Setup the window
+  var alert = COSAlertWindow.new()
+  alert.setMessageText("Example modal")
+  alert.addButtonWithTitle("Run")
+  alert.addButtonWithTitle("Cancel")
+
+  // Create initial view panel
+  var width = 425
+  var height = 20
+  var view = NSView.alloc().initWithFrame(NSMakeRect(0, 0, width, height))
+  alert.addAccessoryView(view)
+
+  // Create checkbox input
+  checkbox = NSButton.alloc().initWithFrame(NSMakeRect(0, 0, 425, 20))
+  checkbox.setButtonType(NSSwitchButton)
+  checkbox.setState(false)
+  checkbox.setBezelStyle(0)
+  checkbox.setTitle("Perform this action when checked")
+
+  view.addSubview(checkbox)
+
+  var answer = alert.runModal()
+
+  if(answer === 1000) {
+    var checkboxIsNotChecked = (checkbox.stringValue() === 0)
+    log(checkboxIsNotChecked)
+    /*
+     * 1000 is the response code of the OK button.
+     * here you should run the function when a person clicked OK.
+     */
+  }
+
+}
+```
