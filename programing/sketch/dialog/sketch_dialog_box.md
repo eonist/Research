@@ -208,7 +208,7 @@ alert.icon = loadLocalImage({
 ```
 
 
-###Dialog with response handler
+### Dialog with response handler
 
 ```js
 function createDialogWindow(context) {
@@ -246,4 +246,63 @@ function createDialogWindow(context) {
   }
 
 }
+```
+
+
+### Dialog box with response handler:
+
+```js
+function createDialogWindow(context) {
+
+  // Setup the window
+  var alert = COSAlertWindow.new()
+  alert.setMessageText("Example modal")
+  alert.addButtonWithTitle("Run")
+  alert.addButtonWithTitle("Cancel")
+
+  // Create initial view panel
+  var width = 425
+  var height = 20
+  var view = NSView.alloc().initWithFrame(NSMakeRect(0, 0, width, height))
+  alert.addAccessoryView(view)
+
+  // Create checkbox input
+  checkbox = NSButton.alloc().initWithFrame(NSMakeRect(0, 0, 425, 20))
+  checkbox.setButtonType(NSSwitchButton)
+  checkbox.setState(false)
+  checkbox.setBezelStyle(0)
+  checkbox.setTitle("Perform this action when checked")
+
+  view.addSubview(checkbox)
+
+  var response = alert.runModal()
+  handleDialogResponse(alert,response)
+
+}
+function handleDialogResponse(alert, response) {
+      log("response: " + response)
+  if(response === 1000) {
+    var checkbox = alert.viewAtIndex(0).subviews()[0]
+    log(checkbox)
+    var checkboxIsNotChecked = (checkbox.stringValue() === 0)
+    if (checkboxIsNotChecked) {
+        log("checked")
+    }else {
+        log("unchecked")
+    }
+    log(checkboxIsNotChecked)
+    /*
+     * 1000 is the response code of the OK button.
+     * here you should run the function when a person clicked OK.
+     */
+  } else { // answer === 1001
+        log("else")
+    }
+
+//     alert.viewAtIndex(1).stringValue(),
+// 					replacementProperty : alert.viewAtIndex(3).i18nObjectValues[alert.viewAtIndex(3).indexOfSelectedItem()],
+// 					replaceHue          : alert.viewAtIndex(5).i18nObjectValues[alert.viewAtIndex(5).indexOfSelectedItem()],
+}
+
+createDialogWindow(context)
 ```

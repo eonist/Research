@@ -67,10 +67,37 @@ if(firstName == "Manuele") {
 ```
 
 
-###
+### Switch
 
 ```js
+switch(choice.responseCode) {
+  case -1000:
+    SketchReplaceImagesDefaults.clearDefaults();
+    doc.showMessage("Restored default.");
+    break;
+  case 1:
+    if(choice.selection.length() < 1) {
+     present_error(doc);
+     return;
+    }
 
+    var relativePath = choice.selection;
+    if (!/\/$/.test(relativePath)) {
+     relativePath = relativePath + "/";
+    }
+
+    var url = NSURL.URLWithString(relativePath);
+    if(url) {
+     SketchReplaceImagesDefaults.saveDefaults(relativePath);
+     doc.showMessage('Set path to: "'+relativePath+'"');
+    } else {
+     present_error(doc);
+    }
+    break;
+  default:
+     doc.showMessage("Cancelled");
+    break;
+}
 ```
 
 ###
