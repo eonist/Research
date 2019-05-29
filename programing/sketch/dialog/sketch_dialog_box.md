@@ -120,6 +120,7 @@ createSelect("Hello",{"a","b","c"},1) // ,2
 ```
 
 ## Dialog with Combobox:
+
 ```javascript
 selectedItemIndex = selectedItemIndex || 0
 
@@ -141,8 +142,7 @@ var sel = accessory.indexOfSelectedItem()
 ## Special path setter dialog:
 
 ```javascript
-function createPanel(msg, default_path)
-{
+function createPanel(msg, default_path) {
   var openPanel;
 
   var okButton = NSButton.alloc().initWithFrame(NSMakeRect(0, 0, 100, 30));

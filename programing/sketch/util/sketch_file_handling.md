@@ -1,8 +1,8 @@
 ## Resources:
 - Has import code: https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-6-exporting-data-36865e571122
 - Has export functionality, but for newer sketch apps: https://gist.github.com/tadija/751e7b2e85afa099603b0c49574c0ad9
-## Read / write (not tested)
 
+## Read / write (not tested)
 ```javascript
 function readFile(path) {
     return NSString.stringWithContentsOfFile_encoding_error(path, NSUTF8StringEncoding, null);
