@@ -31,7 +31,7 @@ user[0]; // this equals "Manuele"
 user[1]; // this equals "Daniel"
 user[2]; // this equals "Miklos"
 
-for(var i = 0; i < users.count(); i++){
+for(var i = 0; i < users.count(); i++){ // sometimes this is .length 
 	var user = users[i];
   log("user: " + user) // Manuele, Daniel, Miklos
 }
