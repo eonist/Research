@@ -7,6 +7,13 @@ var doc = context.document;
 doc.showMessage(layer.name());
 ```
 
+## Super simple text input example:
+
+```js
+var selection = context.selection
+var doc = context.document
+var string = [doc askForUserInput:"Paste your string here:" initialValue:""];
+```
 ## Show a dialog box with 1 button:
 
 ```javascript
