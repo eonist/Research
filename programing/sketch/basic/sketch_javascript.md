@@ -31,12 +31,17 @@ user[0]; // this equals "Manuele"
 user[1]; // this equals "Daniel"
 user[2]; // this equals "Miklos"
 
-for(var i = 0; i < users.count(); i++){ // sometimes this is .length 
+for(var i = 0; i < users.count(); i++){ // sometimes this is .length
 	var user = users[i];
   log("user: " + user) // Manuele, Daniel, Miklos
 }
-```
 
+// Modern sketch api:
+var screenShotPaths = []
+screenShotPaths.forEach(screenShot => {
+    log("screenShot: " + screenShot)
+});
+```
 
 ### Functions
 

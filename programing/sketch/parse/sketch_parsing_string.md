@@ -15,9 +15,9 @@ function split(str, delimiter) {
   var arr = str.split(delimiter);
   var items = []
   for(var i = 0; i < arr.length; i++){
-	var item = arr[i];
-    items.push(item)
-    //log("item: " + item)
+	   var item = arr[i];
+     items.push(item)
+     //log("item: " + item)
   }
   return items
 }
