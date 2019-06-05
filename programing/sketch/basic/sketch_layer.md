@@ -1,4 +1,15 @@
-## Get first layer (✅ works)
+### Get layer in artboard:
+
+```js
+var firstPage = context.document.pages().firstObject()
+var artboard = firstPage.artboards().firstObject()
+log(artboard)
+var layer = artboard.layers().firstObject()
+log(layer)
+
+```
+
+## Get first selected layer (✅ works)
 
 ```javascript
 var selectedLayers = context.selection;
@@ -58,4 +69,83 @@ if (selectedCount == 0) {
 ```js
 var rect = NSMakeRect(0, 0, 100, 100)
 var rectangle = MSRectangleShape.alloc().initWithFrame(rect)
+```
+
+## Remove layer:
+```js
+layer.parentGroup().removeLayer(layer);
+```
+
+## Remove all layers in artboard:
+
+```js
+var sketch = context.api();
+sketch.selectedDocument.selectedPage.iterate(function(artboard){
+  if (artboard.name == 'Artboard') {
+    var layers = [];
+    artboard.iterate(function(layer){
+      layers.push(layer);
+    });
+    layers.forEach(function(layer){
+        layer.remove();
+    });
+  }
+});
+```
+
+## make rect layer
+```js
+let ShapePath = sketch.ShapePath
+let mySquare = new ShapePath({
+    parent: myArtboard,
+    frame: { x: 53, y: 213, width: 122, height: 122 },
+    style: { fills: ['#35E6C9']}
+})
+```
+
+## make triangle shape layer:
+
+
+```js
+let myTraingle = new ShapePath({
+    shapeType: ShapePath.ShapeType.Triangle,
+    parent: myArtboard,
+    frame: { x: 84, y: 62, width: 98, height: 80 },
+    style: { fills: ['#00d5ffb3']}
+})
+```
+
+## make polygon:
+
+```js
+let myHex = new ShapePath({
+    shapeType: ShapePath.ShapeType.Polygon,
+    parent: myArtboard,
+    frame: { x: 218, y: 142, width: 120, height: 120 },
+    style: { fills: ['#FF00B366']}
+})
+```
+
+## make circle:
+
+```js
+let myCircle = new ShapePath({
+    shapeType: ShapePath.ShapeType.Oval,
+    parent: myArtboard,
+    frame: { x: 106, y: 102, width: 172, height: 172 },
+    style: { fills: ['#0006FF66']}
+})
+```
+
+## Layer depth:
+
+```js
+layer.moveToFront()
+layer.moveToBack()
+layer.moveForward()
+layer.moveBackward()
+let index = layer.index
+//the layers current position
+layer.index = 2
+// assigning the index to a particular position
 ```

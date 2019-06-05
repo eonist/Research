@@ -36,10 +36,10 @@ for(var i = 0; i < users.count(); i++){ // sometimes this is .length
   log("user: " + user) // Manuele, Daniel, Miklos
 }
 
-// Modern sketch api:
-var screenShotPaths = []
-screenShotPaths.forEach(screenShot => {
-    log("screenShot: " + screenShot)
+// Modern sketch api: (works sketch 47++)
+var strings = ["a","b","c"]
+strings.forEach(string => {
+    log("string: " + string)
 });
 ```
 
@@ -67,7 +67,7 @@ log(total); // this will also output 5 in the console
 ```js
 var firstName = "Manuele";
 
-if(firstName == "Manuele") {
+if (firstName == "Manuele") {
     // do something for Manuele
 } else if(firstName == "Daniel") {
     // do something for Daniel

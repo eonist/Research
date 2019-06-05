@@ -27,12 +27,12 @@ for(var i = 0; i < selection.count(); i++){
 	var layer = selection[i];
 	var layerClass = layer.class();
 	if(layerClass == "MSShapeGroup"){}
-	else if (layerClass == "MSBitmapLayer"){}
-	else if (layerClass == "MSTextLayer"){}
-	else if (layerClass == "MSSymbolInstance"){}
-	else if (layerClass == "MSSymbolMaster"){}
-	else if (layerClass == "MSArtboardGroup"){}
-	else if (layerClass == "MSLayerGroup"){}
+	else if (layerClass == "MSBitmapLayer") {}
+	else if (layerClass == "MSTextLayer") {}
+	else if (layerClass == "MSSymbolInstance") {}
+	else if (layerClass == "MSSymbolMaster") {}
+	else if (layerClass == "MSArtboardGroup") {}
+	else if (layerClass == "MSLayerGroup") {}
 }
 ```
 
