@@ -79,3 +79,12 @@ var artboard = firstPage.artboards().firstObject()
 log(artboard)
 artboard.removeFromParent()
 ```
+
+## Remove all artboards:
+```js
+var firstPage = context.document.pages().firstObject()
+var artboards = firstPage.artboards()
+artboards.forEach(artboard => {
+    artboard.removeFromParent()
+});
+```
