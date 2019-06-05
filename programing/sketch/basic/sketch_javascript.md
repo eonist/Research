@@ -36,11 +36,24 @@ for(var i = 0; i < users.count(); i++){ // sometimes this is .length
   log("user: " + user) // Manuele, Daniel, Miklos
 }
 
-// Modern sketch api: (works sketch 47++)
+// Modern sketch api: (works sketch 47++) (does not work in sketch preview mode)
 var strings = ["a","b","c"]
 strings.forEach(string => {
     log("string: " + string)
 });
+
+//concat arrays:
+let arrA = ["a","b","c"]
+let arrB = ["1","2","3"]
+var arrC = arrA
+arrC = arrC.concat(arrB)
+
+log("arrC: " + arrC) // a,b,c,1,2,3
+log(arrC.length) // 6
+for(var i = 0; i < arrC.length; i++){
+	log(arrC[i]) // a,b,c,1,2,3
+}
+
 ```
 
 ### Functions
