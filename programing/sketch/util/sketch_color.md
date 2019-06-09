@@ -23,3 +23,18 @@ function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 ```
+
+### RGB
+```js
+
+/**
+* Create NSColor
+* @param r
+* @param g
+* @param b
+* @returns {*}
+*/
+function colorFromRGB(r, g, b) {
+   return NSColor.colorWithDeviceRed_green_blue_alpha_(r / 255.0, g / 255.0, b / 255.0, 1);
+
+```

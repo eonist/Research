@@ -1,8 +1,4 @@
-###
 
-```js
-
-```
 
 ### Objects
 
@@ -123,8 +119,22 @@ switch(choice.responseCode) {
 }
 ```
 
-###
+### OR operator:
 
 ```js
+/**
+ * @Example: setName(null) // "image"
+ * @Example: setName("someImage") // "someImage"
+ */
+function setName(name) {
+   var name = name || "image";
+}
+```
 
+### nil or
+
+```js
+function pathString() {
+  return defaultsDict["pathString"] ? defaultsDict["pathString"] : NSHomeDirectory() + "/Desktop"
+}
 ```

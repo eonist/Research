@@ -22,14 +22,14 @@ var createTempFolderNamed = function(name) {
     return tempPath;
 }
 var getTempFolderPath = function(withName) {
-    var fileManager = [NSFileManager defaultManager],
+    var fileManager = NSFileManager.defaultManager()
     cachesURL = [[fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject],
     withName = (typeof withName !== 'undefined') ? withName : (Date.now() / 1000),
     folderName = [NSString stringWithFormat:"%@", withName];
     return [[cachesURL URLByAppendingPathComponent:folderName] path];
 }
 var createFolderAtPath = function(pathString) {
-    var fileManager = [NSFileManager defaultManager];
+    var fileManager = NSFileManager.defaultManager()
     if([fileManager fileExistsAtPath:pathString]) return true;
     return [fileManager createDirectoryAtPath:pathString withIntermediateDirectories:true attributes:nil error:nil];
 }
@@ -101,10 +101,27 @@ var writeTextToFile = function(text, filePath) {
 }
 
 var readTextFromFile = function(filePath) {
-    var fileManager = [NSFileManager defaultManager];
+    var fileManager = NSFileManager.defaultManager()
     if([fileManager fileExistsAtPath:filePath]) {
         return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     }
     return nil;
 }
+```
+
+
+## User path:
+
+```js
+const temp = NSHomeDirectory() + "/Desktop"
+log(temp) ///Users/eon/Desktop
+```
+
+
+## assert if file exists : ✅
+
+```js
+const fileDir = NSHomeDirectory() + "/Desktop/" + "image.png"
+const fileExists = NSFileManager.defaultManager().fileExistsAtPath(fileDir)
+fileExists ? log("exists") : log("not exist")
 ```

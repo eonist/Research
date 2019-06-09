@@ -1,7 +1,6 @@
 ### Segmented control
 
 ```javascript
-// Add segmented control
 var anchorSegControl = NSSegmentedControl.alloc().initWithFrame(NSMakeRect(0,0,140,30))
 anchorSegControl.setSegmentCount(3)
 anchorSegControl.setSegmentStyle(NSSegmentStyleTexturedRounded)
