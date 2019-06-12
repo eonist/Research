@@ -149,3 +149,30 @@ let index = layer.index
 layer.index = 2
 // assigning the index to a particular position
 ```
+
+## Remove all layers in page
+```js
+/**
+ * Clears the document for content
+ * @Param page: The page to be cleared (removes all artboards)
+ * @Example: clearPage(context.document.pages().firstObject())
+ * @TODO: Use reverse for loop instead of while?
+ */
+function clearPage(page) {
+    var theLayers = page.layers()  // store the layers in a new array
+	while(theLayers.length > 0) {
+        var theLayer = theLayers[0]
+		theLayer.removeFromParent();
+	}
+}
+/**
+ * Clears the first page in a document
+ */
+function clearFirstPage() {
+   var page = context.document.pages().firstObject()
+   log(page)
+   clearPage(page)
+}
+clearFirstPage()
+
+```

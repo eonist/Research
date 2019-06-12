@@ -74,7 +74,7 @@ print(errorPtr.value())
 
 ```js
 var jsonFromFile = function(filePath, mutable) {
-  var data = [NSData dataWithContentsOfFile:filePath];
+   var data = [NSData dataWithContentsOfFile:filePath];
 	var options = mutable == true ? NSJSONReadingMutableContainers : 0
 	return [NSJSONSerialization JSONObjectWithData:data options:options error:nil];
 }

@@ -138,3 +138,13 @@ function pathString() {
   return defaultsDict["pathString"] ? defaultsDict["pathString"] : NSHomeDirectory() + "/Desktop"
 }
 ```
+
+
+### Function as a variable
+```js
+var jsonFromFile = function(filePath, mutable) {
+   var data = [NSData dataWithContentsOfFile:filePath];
+   var options = mutable == true ? NSJSONReadingMutableContainers : 0
+   return [NSJSONSerialization JSONObjectWithData:data options:options error:nil];
+}
+```
