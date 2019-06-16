@@ -23,6 +23,21 @@ function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 ```
+## MsColor ✅
+
+```js
+function msColor(r,g,b,a) {
+    var nsColor = NSColor.colorWithDeviceRed_green_blue_alpha_(r, g, b, a)
+    var immutable = MSImmutableColor.colorWithNSColor(nsColor);
+    return MSColor.alloc().initWithImmutableObject_(immutable);
+}
+
+var color1 = color(0, 0, 0, 1)
+log(color1)
+var color2 = color(1, 1, 1, 1)
+log(color2)
+```
+
 
 ### RGB
 ```js
