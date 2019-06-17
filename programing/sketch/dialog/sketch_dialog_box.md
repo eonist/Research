@@ -14,8 +14,8 @@ var selection = context.selection
 var doc = context.document
 var string = [doc askForUserInput:"Paste your string here:" initialValue:""];
 ```
-## Show a dialog box with 1 button:
 
+## Show a dialog box with 1 button:
 ```javascript
 var app = NSApplication.sharedApplication();
 app.displayDialog_withTitle('hey', 'testing');
@@ -36,13 +36,13 @@ var openDlg = [NSOpenPanel openPanel];
 [openDlg setCanChooseFiles:1];
 [openDlg setAllowsMultipleSelection:0];
 [openDlg setCanChooseDirectories:0];
-if ( [openDlg runModalForDirectory:nil file:nil] == NSOKButton ){
+if ( [openDlg runModalForDirectory: nil file: nil] == NSOKButton ){
   var files = [openDlg filenames];
   log(files[0]); // /Users/eon/Desktop/swish_todo.md
 }
 ```
 
-## Show open folder dialog box: (🚫 Doesnt work)
+## Show open folder dialog box: (🚫 Doesn't work)
 
 ```javascript
 var openDlg = [NSOpenPanel openPanel];
@@ -61,14 +61,12 @@ if ( [openDlg runModalForDirectory:nil file:nil] == NSOKButton ){
 ```javascript
 //create panel for user to select file
 var open = NSOpenPanel.openPanel();
-
 open.setCanChooseDirectories(true);
 open.setCanChooseFiles(true);
 open.setCanCreateDirectories(true);
 open.setTitle("Import a Color Palette");
 open.setPrompt("Import Palette");
 open.runModal();
-
 //import the selected file and parse to JSON object
 var filePath = open.URLs().firstObject().path();
 var fileContents = NSString.stringWithContentsOfFile(filePath);
@@ -83,11 +81,29 @@ openPanel.setCanChooseDirectories(false)
 openPanel.setCanChooseFiles(true)
 openPanel.setCanCreateDirectories(false)
 openPanel.setDirectoryURL(NSURL.fileURLWithPath('~/Documents/'))
-
 openPanel.setTitle('Choose a file')
 openPanel.setPrompt('Choose')
-var responseCode = openPanel.runModal(
+var responseCode = openPanel.runModal()
 log("responseCode: " + responseCode)
+```
+
+## Save panel ✅
+
+```js
+//panel.allowedFileTypes = allowedFileTypes//["css","html","pdf","png"]
+let panel = NSSavePanel.savePanel()
+panel.setCanCreateDirectories(true)
+panel.setCanChooseFiles(true)
+panel.setDirectoryURL(NSURL.fileURLWithPath(NSHomeDirectory() + "/Desktop/"))
+panel.setNameFieldStringValue("image.png")
+panel.setTitle("Some title")
+var responseCode = panel.runModal()
+if (responseCode === NSAlertFirstButtonReturn) { //NSAlertSecondButtonReturn etc
+   var path = openPanel.URL().absoluteString()
+   log("path" + path)
+}else {
+   log("canceled")
+}
 ```
 
 ## Alert
@@ -116,7 +132,7 @@ function createSelect(msg, items, selectedItemIndex) {
 	var responseCode = alert.runModal()
 	return [responseCode, sel]
 }
-createSelect("Hello",{"a","b","c"},1) // ,2
+createSelect("Hello", {"a","b","c"}, 1) // ,2
 ```
 
 ## Dialog with Combobox:
@@ -129,7 +145,8 @@ accessory.addItemsWithObjectValues(items)
 accessory.selectItemAtIndex(selectedItemIndex)
 
 var alert = NSAlert.alloc().init()
-alert.setMessageText(msg)
+alert.setMessageText(title)
+alert.setInformativeText(msg)
 alert.addButtonWithTitle('OK')
 alert.addButtonWithTitle('Cancel')
 alert.setAccessoryView(accessory)
@@ -287,7 +304,7 @@ function createDialogWindow(context) {
 
 }
 function handleDialogResponse(alert, response) {
-      log("response: " + response)
+   log("response: " + response)
   if(response === 1000) {
     var checkbox = alert.viewAtIndex(0).subviews()[0]
     log(checkbox)

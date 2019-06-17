@@ -1,6 +1,9 @@
 ## Loop through and modify layers in an hierarchy
 
 ```javascript
+/*
+ * TODO: This could be done cleaner with the new forEach syntax
+ */
 function updateAllExistingStyles(doc, styleID, sharedStyles, index){
 	var pages = doc.sketchObject.pages();	//reference the pages array in the document
 	for (var i = 0; i < pages.count(); i++){
@@ -27,7 +30,7 @@ function updateAllExistingStyles(doc, styleID, sharedStyles, index){
 ```javascript
 var onRun = function(context) {
   var sketch = context.api()
-  sketch.selectedDocument.selectedLayers.iterate(layer => {
+  sketch.selectedDocument.selectedLayers.iterate(layer => { // 👈 modern forEach syntax
     if (layer.isShape) {
       layer.style.fills = ["#ff0000"]
     }

@@ -1,8 +1,4 @@
-###
 
-```js
-
-```
 
 ### Objects
 
@@ -36,11 +32,24 @@ for(var i = 0; i < users.count(); i++){ // sometimes this is .length
   log("user: " + user) // Manuele, Daniel, Miklos
 }
 
-// Modern sketch api:
-var screenShotPaths = []
-screenShotPaths.forEach(screenShot => {
-    log("screenShot: " + screenShot)
+// Modern sketch api: (works sketch 47++) (does not work in sketch preview mode)
+var strings = ["a","b","c"]
+strings.forEach(string => {
+    log("string: " + string)
 });
+
+//concat arrays:
+let arrA = ["a","b","c"]
+let arrB = ["1","2","3"]
+var arrC = arrA
+arrC = arrC.concat(arrB)
+
+log("arrC: " + arrC) // a,b,c,1,2,3
+log(arrC.length) // 6
+for(var i = 0; i < arrC.length; i++){
+	log(arrC[i]) // a,b,c,1,2,3
+}
+
 ```
 
 ### Functions
@@ -67,7 +76,7 @@ log(total); // this will also output 5 in the console
 ```js
 var firstName = "Manuele";
 
-if(firstName == "Manuele") {
+if (firstName == "Manuele") {
     // do something for Manuele
 } else if(firstName == "Daniel") {
     // do something for Daniel
@@ -110,6 +119,35 @@ switch(choice.responseCode) {
 }
 ```
 
+### OR operator:
+
+```js
+/**
+ * @Example: setName(null) // "image"
+ * @Example: setName("someImage") // "someImage"
+ */
+function setName(name) {
+   var name = name || "image";
+}
+```
+
+### nil or
+
+```js
+function pathString() {
+  return defaultsDict["pathString"] ? defaultsDict["pathString"] : NSHomeDirectory() + "/Desktop"
+}
+```
+
+
+### Function as a variable
+```js
+var jsonFromFile = function(filePath, mutable) {
+   var data = [NSData dataWithContentsOfFile:filePath];
+   var options = mutable == true ? NSJSONReadingMutableContainers : 0
+   return [NSJSONSerialization JSONObjectWithData:data options:options error:nil];
+}
+```
 ### Importing
 
 ```js
@@ -117,4 +155,3 @@ switch(choice.responseCode) {
 //So you specify all paths as if you were in the root folder 👈
 @import 'ui/StylerComponent.js'
 @import 'ui/StylerUI.js'
-```

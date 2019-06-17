@@ -10,7 +10,13 @@ for(var i = 0; i < selection.count(); i++){
 	}
 }
 ```
-
+## Modern sketch api: (works sketch 47++) (does not work in sketch preview mode)
+```js
+var strings = ["a","b","c"]
+strings.forEach(string => {
+    log("string: " + string)
+});
+```
 ## Looping class types:
 
 ```javascript
@@ -27,12 +33,12 @@ for(var i = 0; i < selection.count(); i++){
 	var layer = selection[i];
 	var layerClass = layer.class();
 	if(layerClass == "MSShapeGroup"){}
-	else if (layerClass == "MSBitmapLayer"){}
-	else if (layerClass == "MSTextLayer"){}
-	else if (layerClass == "MSSymbolInstance"){}
-	else if (layerClass == "MSSymbolMaster"){}
-	else if (layerClass == "MSArtboardGroup"){}
-	else if (layerClass == "MSLayerGroup"){}
+	else if (layerClass == "MSBitmapLayer") {}
+	else if (layerClass == "MSTextLayer") {}
+	else if (layerClass == "MSSymbolInstance") {}
+	else if (layerClass == "MSSymbolMaster") {}
+	else if (layerClass == "MSArtboardGroup") {}
+	else if (layerClass == "MSLayerGroup") {}
 }
 ```
 
