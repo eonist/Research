@@ -110,8 +110,11 @@ switch(choice.responseCode) {
 }
 ```
 
-###
+### Importing
 
 ```js
-
+//All paths are absolute. there is mo ../ etc. 👈
+//So you specify all paths as if you were in the root folder 👈
+@import 'ui/StylerComponent.js'
+@import 'ui/StylerUI.js'
 ```
