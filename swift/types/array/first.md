@@ -19,3 +19,8 @@ let condition:(ColorMapItem) -> Bool = { colorMapItem in
 }
 guard let color:UIColor = colorMap.first(where: condition)?.color else {fatalError("Unable to colorize")}
 ```
+
+### Use first to verify
+```swift
+let allExists: Bool = elements.first { !$0.exists } == nil // true / false
+```
