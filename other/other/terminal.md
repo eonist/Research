@@ -6,6 +6,9 @@ shasum -a 1 /tmp/1.iso
 Calculate SHA-256 checksum:
 shasum -a 256 /tmp/1.iso
 
+### Terminate command:
+CTRL + C
+
 ### Clear terminal
 CMD + K 👉 clears terminal
 

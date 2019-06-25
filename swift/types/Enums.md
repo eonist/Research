@@ -343,3 +343,12 @@ enum State {
      }
  }
  ```
+
+
+### Access name of int enum:
+```swift
+public enum TestEnum : Int {
+   case one = 0, two, three
+}
+Swift.print("\(String(describing: TestEnum.three))") // three
+```
