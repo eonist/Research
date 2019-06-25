@@ -14,7 +14,6 @@ let str = ["1", "2", "3"].joined(separator:"")
 ```
 
 ### shorter version
-
 ```swift
 [0,1,1,0].map{"\($0)"}.reduce("",+)//"0110"
 
@@ -40,7 +39,6 @@ partition([1, 2, 3, 4, 5, 6, 7, 8, 9], criteria: { $0 % 2 == 0 })
 ```
 
 ### Reduce into Dict
-
 ```swift
 let dict:[String:String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
     var dict:[String:String] = $0

@@ -16,6 +16,15 @@
 #endif
 ```
 
+### Simulator
+```swift
+#if targetEnvironment(simulator)
+   return true
+#else
+   return false
+#endif
+```
+
 
 ```swift
 var device = UIDevice.currentDevice().model
