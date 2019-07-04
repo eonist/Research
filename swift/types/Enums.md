@@ -273,6 +273,7 @@ enum Device {
 
 #### String enum example:
 
+```swift
 enum Suit:String {
     case spades = "♠"
     case hearts = "♥"
@@ -280,16 +281,19 @@ enum Suit:String {
     case clubs = "♣"
 }
 swift.print(Suit.spades.rawValue)//"♠"
-
+Swift.print(String(describing: Suit.spades))//spades
+```
 
 #### String to enum:
 
+```swift
 enum Foo: String {
    case a, b, c, d
 }
 
 let a = Foo(rawValue: "a")
 assert(a == Foo.a)
+```
 
 
 #### Nested enums:
