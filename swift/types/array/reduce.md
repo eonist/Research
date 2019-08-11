@@ -4,12 +4,12 @@ let res:(String,String) = [("a","1"),("b","2"),("c","3")].reduce(("","")){($0.0 
 Swift.print("res: " + "\(res)")//("abc","123")
 ```
 
-### Reduce to different type:
+### Reduce to different type (array to string):
 ```swift
-let s:String = [1,2,3].reduce(""){"\($0)" + "\($1)"}
+let s: String = [1,2,3].reduce(""){"\($0)" + "\($1)"}
 Swift.print("s: " + "\(s)")
 //alternative:
-let str = ["1", "2", "3"].joined(separator:"")
+let str = ["1", "2", "3"].joined(separator: "")
 
 ```
 
@@ -40,8 +40,8 @@ partition([1, 2, 3, 4, 5, 6, 7, 8, 9], criteria: { $0 % 2 == 0 })
 
 ### Reduce into Dict
 ```swift
-let dict:[String:String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
-    var dict:[String:String] = $0
+let dict: [String: String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
+    var dict: [String:String] = $0
     dict[$1.key] = $1.val
     return dict
 }
@@ -52,13 +52,13 @@ let dict:[String:String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
 ```swift
 //instead of someAre, you can also do: let (checked,unChecked) if you want two values instead of a tuple
 typealias Acc = (checked:Bool,unChecked:Bool)
-let someAre:Acc = descendants.reduce((false,false)) { (ac: Acc, tree: Tree) -> Acc in
+let someAre: Acc = descendants.reduce((false, false)) { (ac: Acc, tree: Tree) -> Acc in
     var ac = ac
     if let prop = tree.props?["active"]  {
         Swift.print("prop: " + "\(prop)")
         if prop == "true"{
             ac.checked = true
-        }else if prop == "false" {
+        } else if prop == "false" {
             ac.unChecked = true
         }
     }
@@ -69,9 +69,9 @@ let someAre:Acc = descendants.reduce((false,false)) { (ac: Acc, tree: Tree) -> A
 ### Reduce into array:
 //This snippet removes duplicates from an array
 ```swift
-let arr:[Int] = [1,2,2,2,3,3,1].reduce([]) { (a:[Int],b:Int) in
-    var acc:[Int] = a
-    if acc.first(where:{$0 == b}) == nil { acc.append(b) }
+let arr: [Int] = [1, 2, 2, 2, 3, 3, 1].reduce([]) { (a: [Int], b: Int) in
+    var acc: [Int] = a
+    if acc.first(where: { $0 == b }) == nil { acc.append(b) }
     return acc
 }
 arr//1,2,3
@@ -79,7 +79,7 @@ arr//1,2,3
 
 ### Reducing an array of Tuples to array
 ```swift
-let arr:[Int] = [(0,""),(1,"")].reduce([]) { $0 + [$1.0] }//[0, 1]
+let arr: [Int] = [(0,""),(1,"")].reduce([]) { $0 + [$1.0] }//[0, 1]
 ```
 
 

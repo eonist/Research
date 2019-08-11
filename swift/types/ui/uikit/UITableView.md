@@ -8,6 +8,7 @@ class CustomTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
      self.rowData = rowData
      super.init(frame: frame, style: style)
      registerCells( )/* Registers Cell types */
+     self.separatorStyle = .none
 
      self.dataSource = self
      self.delegate = self
@@ -70,10 +71,33 @@ extension CustomTableView{
      self.register(CustomCell.self, forCellReuseIdentifier: "\(CustomCell.self)")
      self.register(AnotherCustomCell.self, forCellReuseIdentifier: "\(AnotherCustomCell.self)")
   }
+  /**
+    * When an item is tapped
+    */
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      Swift.print("Tapped idx: \(indexPath.row)")
+   }
 }
 
-class CustomCell:UITableViewCell {}
-class AnotherCustomCell:UITableViewCell {}
+class CustomCell: BaseCell {}
+class AnotherCustomCell: BaseCell {}
+class BaseCell: UITableViewCell {
+   /**
+    * Init
+    */
+   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+      super.init(style: style, reuseIdentifier: reuseIdentifier)
+      self.selectionStyle = .none // disables the selection highlighting
+   }
+   /**
+    * Boilerplate
+    */
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+}
+
+
 
 ```
 
