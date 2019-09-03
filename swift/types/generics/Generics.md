@@ -11,20 +11,20 @@ class A<T>{
    /**
     *
     */
-   var data:T? { didSet {
+   var data: T? { didSet {
        Swift.print("a: \(String(describing: data))")
        }
    }
 }
 
-class B:A<String>{
+class B: A<String>{
    override var data: String? {
        didSet{
            Swift.print("b: \(String(describing: data))")
        }
    }
 }
-class C:B{
+class C: B{
 
 }
 
@@ -35,7 +35,7 @@ b.data = "duper"//a:duper, b:duper
 ```
 
 
-### Generics with Where 
+### Generics with Where
 
 ```swift
 func setCenterConstraints<T:UIView>(_ page:T) where T:ConstraintKind/*<--must be protocol*/ {
@@ -92,7 +92,7 @@ func swapTwoStrings(inout a: String, inout _ b: String) {
     a = b
     b = temporaryA
 }
- 
+
 func swapTwoDoubles(inout a: Double, inout _ b: Double) {
     let temporaryA = a
     a = b
@@ -108,7 +108,7 @@ func swapTwoValues<T>(inout a: T, inout _ b: T) {
 
 
 
-### Checking type generically 👌: 
+### Checking type generically 👌:
 
 ```swift
 struct Asserter<T>{

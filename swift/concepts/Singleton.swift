@@ -12,7 +12,7 @@ In Objective-C, you can ensure that only one instance of a singleton object is c
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[self alloc] init];
     });
- 
+
     return _sharedInstance;
 }
 */
@@ -43,6 +43,10 @@ class VehicleList {
 
 //Simple:
 
+ /**
+  * ## Examples:
+  * let manager: PirateManager = .shared
+  */
 class PirateManager {
     static let shared = PirateManager()
 }

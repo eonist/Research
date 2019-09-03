@@ -15,7 +15,7 @@ let str = ["1", "2", "3"].joined(separator: "")
 
 ### shorter version
 ```swift
-[0,1,1,0].map{"\($0)"}.reduce("",+)//"0110"
+[0, 1, 1, 0].map{ "\($0)" }.reduce("", +)//"0110"
 
 //or combining data
 
