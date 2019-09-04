@@ -39,6 +39,7 @@ partition([1, 2, 3, 4, 5, 6, 7, 8, 9], criteria: { $0 % 2 == 0 })
 ```
 
 ### Reduce into Dict
+// there is also: let newDict = Dictionary(uniqueKeysWithValues: oldDict.map { key, value in (key.uppercased(), value.lowercased()) })
 ```swift
 let dict: [String: String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
     var dict: [String:String] = $0

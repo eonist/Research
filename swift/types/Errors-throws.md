@@ -575,3 +575,26 @@ do {
     print(error.localizedDescription)
 }
 ```
+
+## RuntimeError:
+
+```swift
+throw NSError.init(domain: "unable to convert string to data", code: 0)
+```
+
+```swift
+struct RuntimeError: LocalizedError
+{
+    let message: String
+
+    init(_ message: String)
+    {
+        self.message = message
+    }
+
+    public var errorDescription: String?
+    {
+        return message
+    }
+}
+```
