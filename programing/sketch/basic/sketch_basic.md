@@ -66,3 +66,10 @@ var artboard = context.selection[0];
 log("artboardWidth: " + artboard.frame().width()) // 200
 log("artboardHeight: " + artboard.frame().height()) // 200
 ```
+
+
+## Log a boolean:
+
+```js
+showWarning("Log", false ? "true" : "false", false) // false
+```

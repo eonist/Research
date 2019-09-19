@@ -176,3 +176,11 @@ function clearFirstPage() {
 clearFirstPage()
 
 ```
+###
+```js
+let layerFrame = layer.frame()
+log(layerFrame.width()) // 80
+log(layerFrame.height()) // 80
+log(layerFrame.x()) // 80
+log(layerFrame.y()) // 80
+```

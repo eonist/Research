@@ -2,12 +2,12 @@
 
 ```swift
 /*Range*/
-let a:Range<Int> = 1..<3
+let a:Range<Int> = 1..<3 // you can also do: ..<3 which is equivalent to: 0..<3
 print(type(of:a))//Range<Int>
 a.upperBound//3
 
 /*ClosedRange*/
-let b:ClosedRange<Int> = 1...3
+let b:ClosedRange<Int> = 1...3 // you can also do: ...3 which is equivalent to: 0...3
 print(type(of:b))//ClosedRange<Int>
 b.upperBound//3
 

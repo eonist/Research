@@ -1,3 +1,13 @@
+## Array basics:
+
+```js
+var items = []
+items.push("a")
+items.push("b")
+items.push("c")
+```
+
+
 ## Loop through and modify layers in an hierarchy
 
 ```javascript

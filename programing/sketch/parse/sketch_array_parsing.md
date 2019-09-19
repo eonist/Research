@@ -1,5 +1,12 @@
-## looping
+## js array:
 
+```js
+let arr = [1,2,3]
+log(arr.length) // 3
+```
+
+
+## looping
 ```javascript
 var selection = context.selection;
 for(var i = 0; i < selection.count(); i++){
@@ -10,6 +17,7 @@ for(var i = 0; i < selection.count(); i++){
 	}
 }
 ```
+
 ## Modern sketch api: (works sketch 47++) (does not work in sketch preview mode)
 ```js
 var strings = ["a","b","c"]
@@ -17,6 +25,7 @@ strings.forEach(string => {
     log("string: " + string)
 });
 ```
+
 ## Looping class types:
 
 ```javascript

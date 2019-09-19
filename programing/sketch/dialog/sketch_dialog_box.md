@@ -221,7 +221,6 @@ var choice = createPanel("hello world","~/Documents")
 };
 ```
 
-
 ### Customize the Dialog icon:
 
 ```javascript
