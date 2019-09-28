@@ -43,15 +43,15 @@ $n - n is a digit. Back referencing to a capture group. n must be >= 0 and not g
 (?:...) - Non-capturing parentheses. Matches but doesn’t capture. Somewhat more efficient than capturing parentheses.  
 (?!...) -Negative look-ahead. True if the parenthesized pattern does not match at the current input position.  
 [...] - Any one character in the set.  
-[^...] - Negated set. Not any one in the set. 
-(\\1) to reference previous capturing groups (NOTE: after hours of research there doesnt seem to be support for conditional backref capture groups within the pattern, replacing capture groups may work)
+[^...] - Negated set. Not any one in the set.
+(\\1) to reference previous capturing groups (NOTE: after hours of research there doesn't seem to be support for conditional back-ref capture groups within the pattern, replacing capture groups may work)
 
 **Look around groups**
-?=	 - Positive lookahead  (the sub-seeding pattern must appear, but is not included in the match) 
+?=	 - Positive lookahead  (the sub-seeding pattern must appear, but is not included in the match)
 ?!  - Negative lookahead (the sub-seeding pattern must not appear)
-?<= - Positive look-behind (the sub-seeding pattern must appear, but is not included in the match) 
+?<= - Positive look-behind (the sub-seeding pattern must appear, but is not included in the match)
 ?<! - Negative look-behind the preceding pattern must NOT appear, and is not included in the final match
- 
+
 **Useful Examples**    
 m[^o] - matches any “m” followed by anything other than “o”  
 m(?!o) - matches any “m” (and only “m”) not followed by “o”  

@@ -74,7 +74,6 @@ func test(){
 
 ## Range example 2:
 
-
 ```swift
 let nsRange = NSMakeRange(4, 12)
 nsRange.length//12
@@ -101,5 +100,5 @@ func equals<T:Comparable>(a:Range<T>,_ b:Range<T>)->Bool {
     return a.startIndex == b.startIndex && a.endIndex == b.endIndex;
 }
 
-equals(newRange,anotherRange)
+equals(newRange, anotherRange)
 ```

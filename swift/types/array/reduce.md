@@ -9,17 +9,17 @@ Swift.print("res: " + "\(res)")//("abc","123")
 let s: String = [1,2,3].reduce(""){"\($0)" + "\($1)"}
 Swift.print("s: " + "\(s)")
 //alternative:
-let str = ["1", "2", "3"].joined(separator: "")
+let str: String = ["1", "2", "3"].joined(separator: "")
 
 ```
 
-### Shorter version
+### shorter version
 ```swift
-[0, 1, 1, 0].map{ "\($0)" }.reduce("", +)//"0110"
+[0,1,1,0].map{"\($0)"}.reduce("",+)//"0110"
 
 //or combining data
 
-let d:Data = [Data(),Data()].compactMap{$0}.reduce(Data(),+)//Data()
+let d: Data = [Data(), Data()].compactMap{ $0 }.reduce(Data(),+)//Data()
 ```
 
 ### Reduce into tuple w/ two arrays
@@ -39,7 +39,6 @@ partition([1, 2, 3, 4, 5, 6, 7, 8, 9], criteria: { $0 % 2 == 0 })
 ```
 
 ### Reduce into Dict
-// there is also: let newDict = Dictionary(uniqueKeysWithValues: oldDict.map { key, value in (key.uppercased(), value.lowercased()) })
 ```swift
 let dict: [String: String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
     var dict: [String:String] = $0
