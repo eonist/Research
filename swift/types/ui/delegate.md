@@ -6,32 +6,23 @@ Example of delegate in Swift (you could also grab vc from view, simpler)
 
 ```swift
 protocol MyDelegate: class {
-     func onButtonTapped()
+   func onButtonTapped()
 }
-
-
 class MyViewController: UIViewController, MyDelegate {
-var myView: MyView!
-override func viewDidLoad() {
-     super.viewDidLoad()
-     myView.delegate = self
+  var myView: MyView!
+  override func viewDidLoad() {
+       super.viewDidLoad()
+       myView.delegate = self
+  }
+  func onButtonTapped() {
+        let nextViewController = NextVC()
+        navigationController?.pushViewController(nextViewController, animated: false)
+     }
 }
-func onButtonTapped(){
-     
-      let nextViewController = NextVC()
-     
-      navigationController?.pushViewController(nextViewController,      
-      animated: false)
-   
-   }
-}
-   
 class MyView: UIView {
-     weak var delegate: MyDelegate?
-     let button = UIButton()
-  button.addTarget(self, action: #selector(buttonTapped), 
-  for: .touchUpInside)
-
+   weak var delegate: MyDelegate?
+   let button = UIButton()
+   button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
   func buttonTapped(){
      self.delegate?.onButtonTapped()
   }
