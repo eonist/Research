@@ -2,22 +2,23 @@ Overview of use-full design patterns: <!--more-->
 
 ### Facade pattern
 - A simple class is converted to a advance class
-- The facade class serves as the class between the simple and the advance
+- The facade class serves as the class between the simple and the advance (Wrapper)
 
 ### Adapter pattern:
 - An advance class is adapted to a simple class
-- The adapter class serves as the class between the advance and the simple
+- The adapter class serves as the class between the advance and the simple (Wrapper)
 
 ### Strategy pattern:
 - Delegates functionality through a common interface, alternative to the decorator class
 - The strategy class serve as the delegator to concrete strategy classes
-- Example of strategy class is a string work, stringcheck or a stringsort class(look ths p)
+- Example of strategy class is a string work, stringcheck or a stringsort class(look these up)
 - Often utilizes polymorphism interfaces abstract and concrete classes and in heritage and composition.
 - Main purpose is to add function interchangeability to classes. You can also add functions to classes at runtime as long as the interface of the function is the same
+- Example: `assertIsEmailFormat(email).assertIsNotDisposableEmailService(email).isUnique(email)`
 
 ### Factory pattern:
 - A builder class that builds classes upon requests
-- The factory
+- `Example: makeSimpleButton(view).roundifyButton(view).addShadow(view).addTapCallBack(view, onTap)`
 
 ### Template pattern:
 - A delegation class that utilizes an abstract class to control the order that functions in sub classes are run
@@ -46,10 +47,14 @@ Hierarchical
 
 ### Mediator pattern
 - Works almost like a one level down singleton class
-- A reference of the mediator class is passed doe to sub classes an the sub classes then usually calls the mediators handle function with a state name as string. Then the handle function pareses through a list of if else function and delegates functionality to the current state with a go function
+- A reference of the mediator class is passed down to sub classes an the sub classes then usually calls the mediators handle function with a state name as string. Then the handle function parses through a list of if else function and delegates functionality to the current state with a go function
+- Add example: find on google: `swift mediator pattern example`
+- With the mediator pattern, communication between objects is encapsulated within a mediator object. Objects no longer communicate directly with each other, but instead communicate through the mediator. This reduces the dependencies between communicating objects, thereby reducing coupling
 
 ### Bridge pattern
 - Two abstract classes that communicates then use concrete classes to customise the communication.
+- Subclass with custom functionality. then call the common protocol
+- Greate example: https://medium.com/@iamcrypticcoder/bridge-pattern-in-swift-4-3472b56504b6
 
 ### Builder pattern
 - Creates a class and passes an iteratable array of function calls
@@ -59,16 +64,17 @@ Hierarchical
 - You decorate a class through composition rather than in-heritage.
 - The decorator has the same interface as the class it decorates and usually also employ the use of a common abstract decorator class.
 - One of the key benefits of using the decorator class is that you can change behaviour at runtime often without changing the class its decorating
+- basically every decorator clas holds a ref to the inserted instance. Think russian doll
 
 ### Proxy pattern
 - Similar to facade and adapter but have the same interface As the class it stands in for.
 - Usually Delegates local info if remote info is not available.
 
 ### Observer pattern
-- write summary
+- Notification center etc
 
 ### Visitor pattern:
-research
+- Visitor is a behavioral design pattern that allows adding new behaviors to existing class hierarchy without altering any existing code.
 
 ### Flyweight pattern:
 
