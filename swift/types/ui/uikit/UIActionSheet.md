@@ -1,5 +1,6 @@
 
 ### UIActionSheet
+// the bottom sheet (Deprecated, use UIALertCOntroler with: UIAlertControllerStyleActionSheet)
 ```swift
 import UIKit
 
