@@ -2,7 +2,7 @@
 /*
  * IMPORTANT: ⚠️️ gradient.colors is of type any, so remember to do UIColor.green.cgColor
  */
-class View:UIView{
+class View: UIView{
 	lazy var gradientLayer: CAGradientLayer = {
       let layer = CAGradientLayer()
       layer.colors = [
