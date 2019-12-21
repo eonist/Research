@@ -73,6 +73,7 @@ func testing(){
     intArray.capacity//3
     intArray.count//0
     intArray.appendContentsOf([4,5,6])//repopulate the array
+    // So, the moral of the story is pretty simple: if you’re calling reserveCapacity() once you’re probably doing it right, but if you’re calling it repeatedly then you should either implement your own growth strategy or leave that hard work to Swift.
     intArray.reserveCapacity(10)//adds more capacity
     
     //sorting
