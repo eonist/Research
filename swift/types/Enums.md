@@ -15,7 +15,7 @@ print(value.rawValue)//Output:3
 ```swift
 //advance usage of enum: http://appventure.me/2015/10/17/advanced-practical-enum-examples/
 
-class EnumTest{//enumerations:
+class EnumTest {//enumerations:
 	//enums are simple classes that can be used like this:
 	enum CarType{
 		case Tractor
