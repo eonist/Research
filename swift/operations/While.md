@@ -53,12 +53,12 @@ else
 /* loop completed */
 ```
 
-//enumerate:
+// enumerate:
 for (index, value) in shoppingList.enumerate() {
     print("Item \(index + 1): \(value)")
 }
 
-//repeat while:
+// repeat while:
 
 ```swift
 var size = 10
@@ -79,12 +79,25 @@ repeat {
 var i = 0//string index
 
 while i < 25 {
-    if (i % 5) == 0 {//every...nth page
+    if (i % 5) == 0 { // every...nth page
         print("nth: \(i)")//0,10,15,20
-    }else{
+    } else{
         print("\(i)")
     }
     i += 1
 }
 
+```
+
+
+### Search backward in an array while you consume it:
+
+```swift
+var cache = [0,1,2,3,4]
+
+func processImage(i: Int) -> Bool {
+   Swift.print("\(i)")
+   return i == 2
+}
+while cache.count > 0 && !processImage(i: cache.popLast()!) {} // 4, 3, 2
 ```

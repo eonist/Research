@@ -1,6 +1,6 @@
 //store different types in the same dataContainer instance:
 
-### Method example: 
+### Method example:
 ```swift
 func anim<T:UIView>(view:T) where T : ConstraintKind{
    //  
@@ -112,9 +112,9 @@ Using where let's you deal with cases where there are multiple types involved.
 You may still want to compose protocols for reuse in multiple places, or just to give the composed protocol a meaningful name.
 
 
-### Resources: 
+### Resources:
 
-[https://www.raywenderlich.com/148448/introducing-protocol-oriented-programming](https://www.raywenderlich.com/148448/introducing-protocol-oriented-programming) 
+[https://www.raywenderlich.com/148448/introducing-protocol-oriented-programming](https://www.raywenderlich.com/148448/introducing-protocol-oriented-programming)
 
 
 ### Advance example:
@@ -128,11 +128,11 @@ class Controller{  // Abstract
         self.view = view
     }
 }
-protocol AViewable:Viewable {
+protocol AViewable: Viewable {
     func a()
     func b()
 }
-class AView:AViewable{
+class AView: AViewable{
     func a(){
         Swift.print("a")
     }
@@ -140,13 +140,13 @@ class AView:AViewable{
         Swift.print("b")
     }
 }
-class AController<T>{
+class AController<T> {
     var view:T
     init(_ view:T){
         self.view = view
     }
 }
-extension AController where T:AViewable{
+extension AController where T: AViewable {
     func a() {
         view.a()
     }
@@ -161,7 +161,7 @@ controller.b()//b
 
 ```
 
-MOre insights into the limitations of Generics class type and conformity to protocols: https://forums.developer.apple.com/thread/17942
+More insights into the limitations of Generics class type and conformity to protocols: https://forums.developer.apple.com/thread/17942
 
 
 
@@ -176,7 +176,7 @@ class A<T>{
     }
 }
 
-class B:A<String>{
+class B: A<String>{
     override var data: String? {
         didSet{
             Swift.print("b: \(String(describing: data))")
@@ -185,6 +185,6 @@ class B:A<String>{
 }
 
 let a = A<Int>()
-a.data = 2//2
+a.data = 2 // 2
 let b = B()
-b.data = "duper"//a:duper, b:duper
+b.data = "duper" // a: duper, b: duper

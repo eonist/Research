@@ -1,6 +1,6 @@
 //Generics
 //NOTE: generics are better than using any or anyobject in that they keep the type that was passed to them
-//greate example: http://www.thomashanning.com/swift-generics/
+//great example: http://www.thomashanning.com/swift-generics/
 //really good on advance generics: http://austinzheng.com/2015/09/29/swift-generics-pt-2/
 //also good: http://oleb.net/blog/2015/09/swift-ranges-and-intervals/  (talks about limitation with max int values etc)
 
@@ -17,16 +17,14 @@ class A<T>{
    }
 }
 
-class B: A<String>{
+class B: A<String> {
    override var data: String? {
        didSet{
            Swift.print("b: \(String(describing: data))")
        }
    }
 }
-class C: B{
-
-}
+class C: B {}
 
 let a = A<Int>()
 a.data = 2//2
@@ -38,7 +36,7 @@ b.data = "duper"//a:duper, b:duper
 ### Generics with Where
 
 ```swift
-func setCenterConstraints<T:UIView>(_ page:T) where T:ConstraintKind/*<--must be protocol*/ {
+func setCenterConstraints<T: UIView>(_ page:T) where T: ConstraintKind/*<--must be protocol*/ {
 	Swift.print(page.frame.width)
 	Swift.print(page.anchor)
 }
@@ -49,17 +47,17 @@ func setCenterConstraints<T:UIView>(_ page:T) where T:ConstraintKind/*<--must be
 class TestClass {
 	var singleProperty : String = "A string"
 }
-let myInts  = [123,456,789,345,678,234]
-let myStrings = ["red","green","blue"]
-let myobjects = [TestClass(),TestClass(),TestClass()]
-func displayArray<T>(theArray : [T]) -> T {
+let myInts  = [123, 456, 789, 345, 678, 234]
+let myStrings = ["red", "green", "blue"]
+let myobjects = [TestClass(), TestClass(), TestClass()]
+func displayArray<T>(theArray: [T]) -> T {
 	print("Printing the array:")
 	for eachitem in theArray {
 		print(eachitem)
 		print("  :  ")
 	}
 	print("")
-	let finalElement : T = theArray[theArray.count-1]
+	let finalElement : T = theArray[theArray.count - 1]
 	return finalElement
 }
 
@@ -74,7 +72,6 @@ var finalString = displayArray(myStrings)
 
 
 You may have noticed that the bodies of the swapTwoInts(_:_:), swapTwoStrings(_:_:), and swapTwoDoubles(_:_:) functions are identical. The only difference is the type of the values that they accept (Int, String, and Double).
-
 It would be much more useful, and considerably more flexible, to write a single function that could swap two values of any type. Generic code enables you to write such a function. (A generic version of these functions is defined below.)
 
 ## NOTE
@@ -117,27 +114,27 @@ struct Asserter<T>{
         return T.self == type
     }
 }
-_ = Asserter<String>().generic(2)//false
-_ = Asserter<String>().generic("")//true
+_ = Asserter<String>().generic(2) // false
+_ = Asserter<String>().generic("") // true
 ```
 
 
 ### Generic trickery:
 
 ```swift
-class A:X{}
-class B:Y{}
+class A: X {}
+class B: Y {}
 
-protocol Q{}
-protocol X:Q{}
-protocol Y:Q{}
-struct Base<T:Q>{}
-extension Base where T:X{
+protocol Q {}
+protocol X: Q {}
+protocol Y: Q {}
+struct Base<T: Q> {}
+extension Base where T: X{
     func test(){
         Swift.print("test x")
     }
 }
-extension Base where T:Y{
+extension Base where T: Y {
     func test(){
         Swift.print("test y")
     }
@@ -153,20 +150,20 @@ Base<B>().test()//test y
 enum Dir {
     case hor, ver
 }
-struct Ver{}
-struct Hor{}
+struct Ver {}
+struct Hor {}
 
-struct Scroller<T>{
-    var dir:Dir = T.self == Hor.self ? .hor : .ver
+struct Scroller<T> {
+    var dir: Dir = T.self == Hor.self ? .hor : .ver
     func scroll() {
         switch dir{
             case .hor:
-                Swift.print("scrolling vertically")
+                Swift.print("Scrolling vertically")
             case .ver:
-                Swift.print("scrolling horizontally")
+                Swift.print("Scrolling horizontally")
         }
     }
 }
-_ = Scroller<Ver>().scroll()//scrolling horizontally
-_ = Scroller<Hor>().scroll()//scrolling vertically
+_ = Scroller<Ver>().scroll() // scrolling horizontally
+_ = Scroller<Hor>().scroll() // scrolling vertically
 ```

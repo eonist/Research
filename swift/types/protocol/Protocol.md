@@ -1,12 +1,12 @@
 //Very important concerning protocol. extend the protocol to class if you plan to mutate the variables on an instance through a protocol
 ```swift
-protocol IA:class{
+protocol IA: class {
 	var text:String {get set}
 }
-class A:IA{
-	var something:String = "" 
+class A: IA{
+	var something:String = ""
 }
-class B:A{
+class B: A{
 }
 let b = B()
 (a as! IA).text = "abc"//<- this line will throw an error if the protocol didnt extend class. Why? because protocols can also extend struct etc
@@ -34,7 +34,7 @@ let b = B()
 b.doSomething()//doSomething.y
 ```
 
-### more on protocol conformance: 
+### more on protocol conformance:
 
 ```swift
 
@@ -93,11 +93,11 @@ protocol Image {
     var mimetype: String { get }
     var height: Double { get }
     var width: Double { get }
-    
+
     /*    class var someTypeProperty: Int { get set } */
-    
+
     func save ()
-    
+
     mutating func resize(width: Double, height: Double)
 }
 
@@ -107,13 +107,13 @@ struct Gif : Image {
     var mimetype = "image/gif"
     var height: Double
     var width: Double
-    
+
     func save() {
-        
+
     }
-    
+
     mutating func resize(width: Double, height: Double) {
-        
+
     }
 }
 
@@ -123,22 +123,22 @@ class Png : Image {
     var mimetype = "image/png"
     var height: Double
     var width: Double
-    
+
     init(filename: String, filesize: Double, width: Double, height: Double) {
         self.filename = filename
         self.filesize = filesize
         self.width = width
         self.height = height
     }
-    
+
     func save() {
-        
+
     }
-    
+
     // `mutating` is not required when the protocol already
     // declares it as such.
     func resize(width: Double, height: Double) {
-        
+
     }
 }
 
@@ -165,13 +165,13 @@ struct Media: Image, Video {
     var width: Double
     var framerate: Int
     var resolution: Double
-    
+
     func save() {
-        
+
     }
-    
+
     func resize(width: Double, height: Double) {
-        
+
     }
 }
 
@@ -189,7 +189,7 @@ import Foundation
     optional var hour: Int { get }
     optional var minute: Int { get }
     optional var second: Int { get }
-    
+
     func toString () -> String
 }
 
@@ -197,13 +197,13 @@ class ShortDate : Time {
     @objc var day: Int
     @objc var month: Int
     @objc var year: Int
-    
+
     init(day: Int, month: Int, year: Int) {
         self.day = day
         self.month = month
         self.year = year
     }
-    
+
     @objc func toString () -> String {
         return "\(day)/\(month)/\(year)"
     }
@@ -213,14 +213,14 @@ class LongDate : ShortDate {
     var hour: Int = 0
     var minute: Int = 0
     var second: Int = 0
-    
+
     convenience init(day: Int, month: Int, year: Int, hour: Int, minute: Int, second: Int) {
         self.init(day: day, month: month, year: year)
         self.hour = hour
         self.minute = minute
         self.second = second
     }
-    
+
     override func toString() -> String {
         return super.toString() + " \(hour):\(minute):\(second)"
     }
@@ -233,9 +233,9 @@ var dates: [AnyObject] = [
 func test(){
     for item in dates {
         let date = item as! Time
-        
+
         print("\(date.toString())")                              // 5/5/2016 5/5/2016 10:1:0
-        
+
         if let hours = date.hour {
             print("Hour of the day: \(hours)")                  // Hour of the day: 10
         }
@@ -244,10 +244,10 @@ func test(){
 
 
 
-## Extend a System class with a new protocol: 
+## Extend a System class with a new protocol:
 
 
-NOTE: this can be done with NSView for instance. This is important if you want to attach IElement to the system NSButton for instance. 
+NOTE: this can be done with NSView for instance. This is important if you want to attach IElement to the system NSButton for instance.
 
 ## Example from the link: http://stackoverflow.com/questions/29881621/make-property-of-type-and-also-conform-to-protocol-in-swift?rq=1
 
@@ -264,4 +264,3 @@ class MyClass {
     var controller: protocol<UIViewControllerProtocol, CustomProtocol>
 }
 ```
-
