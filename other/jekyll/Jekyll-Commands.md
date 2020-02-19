@@ -30,7 +30,7 @@ You need to manually install jekyll-paginate:
 sudo gem install jekyll-paginate
 ```
 
-Nixing OSX Rootless
+Fixing OSX Rootless
 ```
 sudo nvram boot-args="rootless=0"
 sudo reboot
@@ -43,7 +43,7 @@ gem list
 
 ## **Running**
 
-New project:
+New project: ⭐️
 ```
 sudo jekyll new <project-name>
 ```
@@ -55,7 +55,7 @@ sudo jekyll build -w
 
 On-the-fly-updating with local-server preview (press ctrl-c in terminal to stop)
 ```
-sudo jekyll serve 
+sudo jekyll serve
 ```
 Same as serve but sets the baseurl to zero so that the site works offline if it has a remote baseurl etc
 ```
