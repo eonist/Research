@@ -5,6 +5,3 @@
 4. jekyll new test_website (makes website in user dir)
 5. cd  /Users/eon/test_website (move to directory)
 6. bundle exec jekyll serve (serves up the website at: http://127.0.0.1:4000/)
-
-### Config.yml
-- Basic setup of your website. Title, description etc.
