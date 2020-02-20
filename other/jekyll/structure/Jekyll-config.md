@@ -4,3 +4,12 @@
 permalink: pretty
 baseurl: /your-folder-on-github
 ```
+### Always restart jekyl server after config changes
+Terminal: `jekyll serve`
+
+### Base-URL:
+If you have a custom domain, set it to:
+`lightstream.to`
+
+if you have a github page only:
+`name_of_repo`

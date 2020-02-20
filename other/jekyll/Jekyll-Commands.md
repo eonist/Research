@@ -61,3 +61,8 @@ Same as serve but sets the baseurl to zero so that the site works offline if it 
 ```
 sudo jekyll serve --baseurl ''
 ```
+
+post you want to show up in draft mode go here: `_drafts/`
+```
+jekyle server -draft
+```
