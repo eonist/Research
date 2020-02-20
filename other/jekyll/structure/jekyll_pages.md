@@ -16,9 +16,11 @@ Also works for pages in the site: to make a sitemap etc. `page in site.pages` et
 ```
 
 ### Filtering on frontmater title:
-Could potentially use collection as well to filter 
+Could potentially use collection as well to filter
 ```
 {% if page.title != null %}
 	 <li> <a href="{{ page.url }}">{{ page.title }}</a></li>
 {% endif %}
 ```
+
+You also have .dir .path .name etc
