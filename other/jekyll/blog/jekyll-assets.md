@@ -5,7 +5,7 @@ static files are pdf, png svg etc. all other files that does not have frontmater
 `_layouts/home.html`
 
 ```
-{% for file in site.static_files %}
+{% for file in site.static_files %} <!––looping through static files––>
 	{{ file.path }} <br>
 {% endfor %}
 ```

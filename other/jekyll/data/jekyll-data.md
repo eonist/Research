@@ -26,7 +26,7 @@ people.yml
 ## Looping the data:
 
 ```
-{% for person in site.data.people %}
+{% for person in site.data.people %} <!––dealing with data––>
 	{{ person.name }}, {{ person.occupation }} <br>
 {% endfor %}
 ```
@@ -35,5 +35,5 @@ people.yml
 ```
 mike, andorid dev
 ben, mac dev
-melvin, ios dev 
+melvin, ios dev
 ```

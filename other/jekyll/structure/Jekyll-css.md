@@ -7,3 +7,6 @@
 
 ### Theme editing:
 A css meta link would look like this: `"{site.baseurl}/css/common.css"`
+
+### Target by layout:
+you can target by doing `page.layout`
