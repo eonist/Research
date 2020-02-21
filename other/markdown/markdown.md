@@ -1,4 +1,4 @@
-# Some title
+# Awesome title
 This is a paragraph.  
 Text goes here  
 [This is a link](google.com)
@@ -6,7 +6,7 @@ Text goes here
 ### Numbered list:
 
 1. One
-2. Two
+2. 2
 3. Three
 
 <img width="320" alt="img" src="https://octodex.github.com/images/yaktocat.png">
