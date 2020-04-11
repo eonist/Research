@@ -1,7 +1,7 @@
 ### Simple button:   
 
 ```swift
-let btn:UIButton = UIButton(type: .system)
+let btn: UIButton = UIButton(type: .system)
 btn.backgroundColor = .gray
 btn.setTitle("Button", for: .normal)
 btn.setTitleColor(.black, for: .normal)
@@ -19,8 +19,8 @@ self.view.addSubview(btn)
 ### Programatic toggle button
 
 ```swift
-class RecordButton:UIButton{
-    var toggle:Bool = false
+class RecordButton: UIButton {
+    var toggle: Bool = false
     var onToggle:(_ toggle:Bool)->Void = { toggle in Swift.print("onToggle: \(toggle)")}
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,15 +59,15 @@ class RecordButton:UIButton{
 
 ```swift
 /**
- * let customButton:CustomButton = CustomButton.init(frame:CGRect.init(x:0,y:0,width:120,height:40))
+ * let customButton: CustomButton = CustomButton.init(frame:CGRect.init(x:0,y:0,width:120,height:40))
  * addSubview(customButton)
  * customButton.tapUpInsideCallBack = {
  *    Swift.print("🎉")
  * }
  * TODO: Add onTapDownInside method
  */
-class CustomButton:UIView{
-   var tapUpInsideCallBack:TapUpInsideCallBack = defaultTapUpInside
+class CustomButton: UIView {
+   var tapUpInsideCallBack: TapUpInsideCallBack = defaultTapUpInside
    override init(frame: CGRect) {
       super.init(frame: frame)
       backgroundColor = .purple//Debug
@@ -95,7 +95,7 @@ class CustomButton:UIView{
 }
 extension CustomButton{
    typealias TapUpInsideCallBack = () -> Void
-   static let defaultTapUpInside:TapUpInsideCallBack = {Swift.print("default \(CustomButton.self).onTapUpInside")}
+   static let defaultTapUpInside: TapUpInsideCallBack = {Swift.print("default \(CustomButton.self).onTapUpInside")}
 }
 ```
 

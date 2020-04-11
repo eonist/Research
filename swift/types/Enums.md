@@ -331,8 +331,8 @@ enum State {
  ### Hash to type
  ```swift
  enum CellType:String{
-     case primary,secondary,tierary
-     static let types:[CellType] = [.primary,.secondary,.tierary]
+     case primary, secondary, tierary
+     static let types: [CellType] = [.primary,.secondary,.tierary]
      /**
       * NOTE: Since there is no way to get back an enum value from its hashValue, you have to do it manually.
       */
@@ -355,4 +355,18 @@ public enum TestEnum : Int {
    case one = 0, two, three
 }
 Swift.print("\(String(describing: TestEnum.three))") // three
+```
+
+## 29. Access name of int enum:
+This does not work on some native enums, often due to the fact that they are Objc enums, In such cases make an extension that has a switch that returns the name.
+```swift
+public enum TestEnum : Int {
+   case one = 0, two, three
+}
+Swift.print("\(String(describing: TestEnum.three))") // three
+// or another example:
+public enum FocalType: Int, CaseIterable { case ultraWide, wide, tele }
+print(FocalType.allCases.map { "\($0): \($0.rawValue)" }.joined(separator: ", "))
+// ultraWide : 0, wide : 1, tele : 2
+
 ```

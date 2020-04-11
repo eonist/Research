@@ -1,9 +1,9 @@
 ### UIViewPropertyAnimator
 
-advance usage:  
+#### advance usage:  
 http://www.swiftkickmobile.com/building-better-app-animations-swift-uiviewpropertyanimator/
 
-game made with constraints and uiviewpropanimator :  
+#### game made with constraints and uiviewpropanimator :  
 https://medium.freecodecamp.org/interactive-animations-with-swifts-uiviewpropertyanimator-284262530a0a
 
 ```swift
