@@ -9,7 +9,7 @@ enum Numbers: Int {
 }
 
 let value = Numbers.Three
-print(value.rawValue)//Output:3
+print(value.rawValue) // Output:3
 ```
 
 ```swift
@@ -17,14 +17,14 @@ print(value.rawValue)//Output:3
 
 class EnumTest {//enumerations:
 	//enums are simple classes that can be used like this:
-	enum CarType{
+	enum CarType {
 		case Tractor
 		case Sports
 		case Sedan
-		//or case Tractor, Sports,Sedan
+		//or case Tractor, Sports, Sedan
 	}
     func test(){
-        var johnLikes:CarType
+        var johnLikes: CarType
         johnLikes = CarType.Sedan
         johnLikes = .Sedan
 
@@ -274,7 +274,7 @@ enum Device {
 #### String enum example:
 
 ```swift
-enum Suit:String {
+enum Suit: String {
     case spades = "♠"
     case hearts = "♥"
     case diamonds = "♦"
@@ -330,7 +330,7 @@ enum State {
 
  ### Hash to type
  ```swift
- enum CellType:String{
+ enum CellType: String{
      case primary, secondary, tierary
      static let types: [CellType] = [.primary,.secondary,.tierary]
      /**
@@ -348,7 +348,6 @@ enum State {
  }
  ```
 
-
 ### Access name of int enum:
 ```swift
 public enum TestEnum : Int {
@@ -357,7 +356,7 @@ public enum TestEnum : Int {
 Swift.print("\(String(describing: TestEnum.three))") // three
 ```
 
-## 29. Access name of int enum:
+## Access name of int enum:
 This does not work on some native enums, often due to the fact that they are Objc enums, In such cases make an extension that has a switch that returns the name.
 ```swift
 public enum TestEnum : Int {
@@ -369,4 +368,13 @@ public enum FocalType: Int, CaseIterable { case ultraWide, wide, tele }
 print(FocalType.allCases.map { "\($0): \($0.rawValue)" }.joined(separator: ", "))
 // ultraWide : 0, wide : 1, tele : 2
 
+```
+
+### Get string of case:
+
+```swift
+enum PasswordType {
+   case amazon, apple, gmail, facebook, github, instagram, linkdin, slack, twitter, zoom, uber
+}
+String(describing: PasswordType.amazon) // amazon
 ```

@@ -102,14 +102,15 @@ extension CustomButton{
 
 ### UIButton
 ```swift
-let dunamicButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-dunamicButton.backgroundColor = UIColor.greenColor()
-dunamicButton.setTitle("Button", forState: UIControlState.Normal)
-dunamicButton.frame = CGRectMake(100, 100, 100, 50)
-dunamicButton.addTarget(self, action: "buttonTouched:", forControlEvents: UIControlEvents.TouchUpInside)
-self.view.addSubview(dunamicButton)
 
-func buttonTouched(sender:UIButton!) {
+let btn = UIButton(type: .system)
+btn.backgroundColor = UIColor.green
+//      btn.setTitle("Button", forState: UIControlState.Normal)
+btn.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+btn.addTarget(self, action: #selector(buttonTouched), for: .touchUpInside)
+self.addSubview(btn)
+
+@objc func buttonTouched(sender:UIButton!) {
    print("It Works!!!")
 }
 ```
