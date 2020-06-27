@@ -110,6 +110,7 @@ git reset --hard 530121b6fab13fcb4e8b210120ff585d1e2228ea
 
 
 ### Revert
+- Its also sometimes better to use git checkout
 git revert 530121b6fab13fcb4e8b210120ff585d1e2228ea
 
 ### Merging Detached head

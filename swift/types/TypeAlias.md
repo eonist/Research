@@ -1,6 +1,3 @@
-
-
-
 - I don't think you should use type alias too much, but here is a good example: (I wonder what scope type alias works under)
 - Use regular variable outside classes if you want to define global variables
 ```swift
@@ -24,7 +21,7 @@ func test(){
 
 ```
 
-This example shows how you can rename a class and keep the old name. Great if you have other classes depending on the old name etc. 
+This example shows how you can rename a class and keep the old name. Great if you have other classes depending on the old name etc.
 ```swift
 typealias NSViewModifier = ViewModifier
 ```

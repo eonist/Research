@@ -102,6 +102,12 @@ Set([55,4,5,3,3,4].map { $0 })//[4, 3, 5, 55]
 ### Reduce to find longest string:
 ```swift
 let strings: [String?] = ["Red", "Orange", nil, "Blue"]
-var longestString: String = strings.compactMap{$0}.reduce(""){$0.count > $1.count ? $0 : $1}
+var longestString: String = strings.compactMap { $0 }.reduce("") { $0.count > $1.count ? $0 : $1 }
 Swift.print("longestString:  \(longestString)")//orange
+```
+
+### Reduce to find highest number:
+// you can also use .max(), but it doesnt support UInt8 etc
+```swift
+let max: UInt8 = arr.compactMap { $0 }.reduce(UInt8(0)) { $0 > $1 ? $0 : $1 }
 ```
