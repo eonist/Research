@@ -17,13 +17,13 @@ var a1lSongs = myAVOueuePLayer.items() as [AVPlayerltem]
  */
 func testing(){
     //the following two declarations are equivalent:
-    
+
     var someArray: Array<String> = ["Alex", "Brian", "Dave"]
     let someArray2: [String] = ["Alex", "Brian", "Dave"]
     print(someArray2)
     let someArray3: [String]//string array
     print(someArray3)
-    
+
     var someArray4:Array = [1,2,3]//mutable
     someArray4.append(5)
     print(someArray4)//1,2,3,4,5
@@ -39,7 +39,7 @@ func testing(){
     //non array items wont work
     //the items we concat are restricted by the same types that the oroginal array had
     anotherArray += ["test"]
-    
+
     anotherArray.insert("hello",atIndex:2)
     //remove at index
     anotherArray.removeAtIndex(2)
@@ -53,7 +53,7 @@ func testing(){
     anotherArray.count
     //.count = 0 can be written as:
     anotherArray.isEmpty//isRmpty is based on the count, not the capacity
-    
+
     //
     for theItem in anotherArray{
         print("your value: \(theItem)")
@@ -67,7 +67,7 @@ func testing(){
     var intArray = [33,42,1,55,1,56,8,2]
     intArray.insert(4,atIndex:2)
     intArray[2] = 8//this replaces the item at index 2
-    
+
     //extend
     intArray.removeAll(keepCapacity:true)
     intArray.capacity//3
@@ -75,7 +75,7 @@ func testing(){
     intArray.appendContentsOf([4,5,6])//repopulate the array
     // So, the moral of the story is pretty simple: if you’re calling reserveCapacity() once you’re probably doing it right, but if you’re calling it repeatedly then you should either implement your own growth strategy or leave that hard work to Swift.
     intArray.reserveCapacity(10)//adds more capacity
-    
+
     //sorting
     var someColors = ["blue","red","green","yellow","browm","black"]
     let sortedColors = someColors.sort() { $0 < $1 }//returns but does not change the original array
@@ -109,4 +109,23 @@ Sometimes it's useful to convert from one array type to another. The best approa
 ### multi dim:
 ```swift
 //You can create multidimensional arrays by nesting pairs of square brackets, where the name of the base type of the elements is contained in the innermost pair of square brackets. For example, you can create a three-dimensional array of integers using three sets of square brackets:
+```
+
+
+Stride
+
+```swift
+for i in stride(from: 0, to: 10, by: 2) {
+    print(i)
+}
+//This second example counts from 0.1 up to to 0.5, exclusive:
+
+for i in stride(from: 0, to: 0.5, by: 0.1) {
+    print(i)
+}
+//Both those examples use stride(from:to:by:), which counts from the start point up to by excluding the to parameter. If you want to count up and including the to parameter, you should use stride(from:through:by:), like this:
+
+for i in stride(from: 0, through: 10, by: 2) {
+    print(i)
+}
 ```

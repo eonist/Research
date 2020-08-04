@@ -25,6 +25,11 @@
 #endif
 ```
 
+### Debug
+
+#if DEBUG
+  performAdditionalChecks()
+#endif
 
 ```swift
 var device = UIDevice.currentDevice().model
@@ -46,3 +51,6 @@ func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
 
 }
 ```
+
+### Resources:
+https://docs.swift.org/swift-book/ReferenceManual/Statements.html#ID539
