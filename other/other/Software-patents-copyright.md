@@ -1,4 +1,5 @@
 ## **A research paper concerning software patents**
+> By Eonist (André J)
 
 **Hardware vs software patenting dilemma:**
 If you possess the hardware, it is trivial to reengineer it, alas we need patents that protect the commodity from becoming only worth its production cost. An in turn yield no leftover funding for further R & D. On the other hand if you possess software and it is encrypted, one can not trivially reengineer it. Because one can not reengineer what one can not see. What is left is only the business process, and business processes can not, and should not be applicable for patents. And one can not sue someone else for something one can not see or have legal access to examine. Only the business process is left. And again that is not patentable under current law. (See source for this at the bottom of this research paper, under the section business process patents)
