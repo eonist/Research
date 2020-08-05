@@ -133,3 +133,27 @@ func convertTo32bitsRGBA(from32bitsRGB pointer: UnsafeMutablePointer<UInt8>!, wi
     return newBuffer;
 }
 ```
+
+### Using Typed Pointers
+```swift
+do {
+  print("Typed pointers")
+
+  let pointer = UnsafeMutablePointer<Int>.allocate(capacity: count)
+  pointer.initialize(repeating: 0, count: count)
+  defer {
+    pointer.deinitialize(count: count)
+    pointer.deallocate()
+  }
+
+  pointer.pointee = 42
+  pointer.advanced(by: 1).pointee = 6
+  pointer.pointee
+  pointer.advanced(by: 1).pointee
+
+  let bufferPointer = UnsafeBufferPointer(start: pointer, count: count)
+  for (index, value) in bufferPointer.enumerated() {
+    print("value \(index): \(value)")
+  }
+}
+```

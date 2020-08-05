@@ -11,3 +11,5 @@ https://swiftdoc.org/v5.1/type/unsafemutablepointer/
 ```swift
 let bytesArray: [UInt8] = UnsafeBufferPointer(start: bts, count: bytes.count).map{$0}
 ```
+
+<img width="620" alt="img" src="https://github.com/stylekit/img/blob/master/pointers.png?raw=true">
