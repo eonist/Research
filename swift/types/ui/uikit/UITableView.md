@@ -1,6 +1,8 @@
 ## Row based UITabelView
 
 ```swift
+// let rowData = ["Audi", "Aston Martin","BMW", "Bugatti", "Bentley","Chevrolet", "Cadillac","Dodge","Ferrari", "Ford","Honda","Jaguar","Lamborghini","Mercedes", "Mazda","Nissan","Porsche","Rolls Royce","Toyota","Volkswagen"]
+// view = CustomTableView.init(rowData: rowData, frame: self.view.bounds, style: .plain) // View()
 class CustomTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
   let rowData: [String]
   /*Init*/

@@ -1,6 +1,6 @@
-   closure as a variable [link](http://stackoverflow.com/questions/24603559/store-a-closure-as-a-variable-in-swift) and more complex examples: [link](http://fuckingclosuresyntax.com) 
+   closure as a variable [link](http://stackoverflow.com/questions/24603559/store-a-closure-as-a-variable-in-swift) and more complex examples: [link](http://fuckingclosuresyntax.com)
 
-   
+
    #### Closure trick by regex
 
    ```swift
@@ -30,7 +30,7 @@
    ```
 
 
-   #### If a closure is escaping then a weak self is a good habit to use: 
+   #### If a closure is escaping then a weak self is a good habit to use:
 
    ```swift
    myFunctionWithEscapingClosure() { [weak self] (error) -> Void in
@@ -139,7 +139,7 @@ let someClosure:(Brick)->Bool = {
     return arg.isActive()
 }
 
-to this: 
+to this:
 
 let someClosure:(Brick)->Bool = {$0.isActive()}/*<--Note that the argument becomes $0 and the return is omitted because its declared in the var signature*/
 
@@ -167,7 +167,7 @@ let myClosure = {
 
 // Call it
 myClosure()
-			
+
 ```
 
 ## Closures with arguments
@@ -182,7 +182,7 @@ let multiply = {(x:Int,y:Int)->Int in
 // Call it
 let result = multiply(2,5)
 print(result)
-				
+
 ```
 
 ## Closure as a parameter:
@@ -205,3 +205,19 @@ let myClosure = {(x:Int, y:Int)->() in
 doSth(myClosure)
 
 
+### Escaping closure within closure:
+
+```swift
+typealias Action = () -> Void
+  var action: Action = {}
+  var onComplete: (_ action: @escaping Action) -> Void = { _ in }
+
+  func process() {
+     self.onComplete = { action in
+        let callIt = {
+           action()
+        }
+        callIt()
+     }
+  }
+```

@@ -2,4 +2,4 @@ A local music store did good. The started online did better. Closed down local s
 
 Financial inTitutains did the Same always abstracting up one level. More automation.
 
-Thw bazar was such a succses flr normal people that the aristocrats and royals hirdd economics to figure out how they could regaong powee, they invented centeralized currency and corporstions, work gorthe kings monoploy or not. 
+Thw bazar was such a succsess flr normal people that the aristocrats and royals hirdd economics to figure out how they could regaong powee, they invented centeralized currency and corporstions, work gorthe kings monoploy or not. 

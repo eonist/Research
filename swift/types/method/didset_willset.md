@@ -4,10 +4,10 @@
 
 var a : Int = 0 {
 	willSet(newValue){//before
-	    print("willSet called: \(a)")
+	    print("willSet called: \(newValue)")
 	}
-	didSet{//after
-	    print("didSet called: \(a)")
+	didSet(oldValue){//after
+	    print("didSet called: \(oldValue)")
 	}
 
 }

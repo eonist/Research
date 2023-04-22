@@ -1,7 +1,8 @@
 ### Wrapper layout:
+- This is a way to reuse boilerplate code in each layout html file
 
-- make a `_layouts/wrapper.html` :
-```
+- Make a `_layouts/wrapper.html` :
+```html
 <html>
 	<head>
 	  <meta charset="utf-8">
@@ -14,10 +15,10 @@
 	</body>
 </html>
 ```
-- link your wrapper.html in your custom.html frontmater to your `_layouts/custom.html` with:
+- Link your wrapper.html in your custom.html frontmater to your `_layouts/custom.html` with:
 ```
 ---
 layout: wrapper
 ---
 ```
-- see the live result in safari
+- See the live result in safari

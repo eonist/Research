@@ -2,8 +2,8 @@
 
 //Custom classes and structures do not receive a default implementation of the equivalence operators, known as the “equal to” operator (==) and “not equal to” operator (!=). It is not possible for Swift to guess what would qualify as “equal” for your own custom types, because the meaning of “equal” depends on the roles that those types play in your code.
 
-//To use the equivalence operators to check for equivalence of your own custom type, provide an implementation of the operators in the same way as for other infix operators:
-
+// To use the equivalence operators to check for equivalence of your own custom type, provide an implementation of the operators in the same way as for other infix operators:
+// Note: this now needs to be inside the class scope and be static
 func == (left: Vector2D, right: Vector2D) -> Bool {
     return (left.x == right.x) && (left.y == right.y)
 }
@@ -23,6 +23,6 @@ func testing(){
         print("These two vectors are equivalent.")
     }
     // prints "These two vectors are equivalent."
-    
+
 
 }

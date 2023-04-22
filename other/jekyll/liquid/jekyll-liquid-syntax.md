@@ -54,7 +54,7 @@ Hello {{ 'now' | date: "%Y %h" }}
 * `join` - join elements of the array with certain character between them
 * `sort` - sort elements of the array
 * `map` - map/collect an array on a given property
-* `size` - return the size of an array or string
+* `size` - return the size of an array or string (aka length or count)
 * `escape` - escape a string
 * `escape_once` - returns an escaped version of html without affecting existing escaped entities
 * `strip_html` - strip html from string
@@ -284,7 +284,7 @@ Liquid allows `for` loops over collections:
 {% endfor %}
 ```
 
-When iterating a hash, `item[0]` contains the key, and `item[1]` contains the value:
+When iterating a hash (dictionary), `item[0]` contains the key, and `item[1]` contains the value:
 
 ```liquid
 {% for item in hash %}
@@ -319,7 +319,7 @@ your loop
 # results in 3,4
 ```
 
-Reversing the loop
+**Reversing the loop**
 
 ```liquid
 {% for item in collection reversed %} {{item}} {% endfor %}

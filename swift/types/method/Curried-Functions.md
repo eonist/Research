@@ -2,7 +2,6 @@
 
 When a function returns a function that takes a parameter in this way, it is called a curried function (after the computer scientist Haskell Curry).
 
-
 ```swift
   func makeRoundedRectangleMaker(_ sz:CGSize) -> (CGFloat) -> UIImage {
         return {
@@ -41,7 +40,7 @@ let timed : Bool = {
 
 
 Subtle difference between lazy and computed initialiser:  “computed initialiser” is accessed at init of class. Where as lazy is not. Not until something actually calls it
- 
+
  ```swift
 class Temp{
     lazy var timed : Bool = {

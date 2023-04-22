@@ -86,3 +86,36 @@ struct MyCar: Vehicle {
     }
 }
 ```
+
+
+### Array Extension
+
+class HighScoreEntry {
+    let score:Int
+}
+
+extension Array where Element == HighScoreEntry {
+    func sort() -> [HighScoreEntry] {
+      return sort { $0.score < $1.score }
+    }
+}
+Trying to do this with a struct or typealias will give an error:
+
+Type 'Element' constrained to a non-protocol type 'HighScoreEntry'
+Update:
+
+To extend typed arrays with non-classes use the following approach:
+
+typealias HighScoreEntry = (Int)
+
+extension SequenceType where Generator.Element == HighScoreEntry {
+    func sort() -> [HighScoreEntry] {
+      return sort { $0 < $1 }
+    }
+}
+In Swift 3 some types have been renamed:
+
+extension Sequence where Iterator.Element == HighScoreEntry
+{
+    // ...
+}

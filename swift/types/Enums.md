@@ -29,14 +29,10 @@ class EnumTest {//enumerations:
         johnLikes = .Sedan
 
         switch johnLikes{
-            case .Sedan:
-                print("he likes sedan")
-            case .Sports:
-                print("he likes sport cars")
-            case .Tractor:
-                print("he likes tractors")
-            default:
-                break;
+            case .Sedan: print("he likes sedan")
+            case .Sports: print("he likes sport cars")
+            case .Tractor: print("he likes tractors")
+            default: break;
         }
     }
 
@@ -371,10 +367,59 @@ print(FocalType.allCases.map { "\($0): \($0.rawValue)" }.joined(separator: ", ")
 ```
 
 ### Get string of case:
-
+// also works even if a case is assigned a string ✨
 ```swift
 enum PasswordType {
    case amazon, apple, gmail, facebook, github, instagram, linkdin, slack, twitter, zoom, uber
 }
 String(describing: PasswordType.amazon) // amazon
+```
+
+### if case
+
+// if statement
+if case let .success(data) = result { ... }
+
+// if statement - alternate form
+if case .success(let data) = result { ... }
+
+// if statement with extra condition
+if case let .success(data) = result, data.count > 100 { ... }
+
+// or like this:
+MultiSync.shared.onEvent = { eventType in
+   if case let .received(data, peerID) = eventType {
+      self.didReceive(data: data, fromPeer: peerID)
+   }
+}
+
+### RawValue
+
+```swift
+enum WeekDay: String {
+    typealias RawValue = String
+    case monday, tuesday, wednesday, thursday, friday
+    init?(rawValue: Int){
+        switch rawValue {
+        case 0 : self = .monday
+        case 1 : self = .tuesday
+        case 2 : self = .wednesday
+        case 3 : self = .thursday
+        case 4 : self = .friday
+        default : return nil
+        }
+    }
+}
+```
+
+### if not state:
+
+```swift
+enum TaskState {
+	case idle, didFail, didSucceed
+}
+var state: TaskState = .idle
+if self.state != TaskState.didSucceed { // Must have not succeeded
+   self.fail() // Fail works like cancel
+}
 ```

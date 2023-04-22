@@ -3,7 +3,7 @@ Notes on associated type
 
 ```swift
 protocol Thing {
-    associatedtype argType
+    associatedtype argType/*:SomeTYPE 👈 you can add protocol here too*/
     func doit(val:argType) -> argType
 }
 

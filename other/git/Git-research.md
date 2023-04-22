@@ -125,3 +125,16 @@ git revert 530121b6fab13fcb4e8b210120ff585d1e2228ea
 
 - Delete temproary branch
 `git branch -d tmp`
+
+
+#### squash all hist
+
+- 7 = the num of commits in repo
+- may require some calls to reset,
+- and using github desktop to commit,
+- then push in terminal
+
+git reset --soft HEAD~51
+git add --all
+git commit
+git push --force

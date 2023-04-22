@@ -1,12 +1,10 @@
 ## example
 ```swift
 class Testing {
-    
-    var timer:NSTimer?
+    var timer: NSTimer?
     func test(){
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "tester:", userInfo: somethingToPass, repeats: false)
     }
-    
     func tester(timer: NSTimer){
         let theStringToPrint = timer.userInfo as! String
         print(theStringToPrint)
@@ -14,10 +12,7 @@ class Testing {
 }
 ```
 
-
-
-
-## another one:
+## Another one:
 ```swift
 NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: "onFlip", userInfo: nil, repeats: false)
 ```
@@ -46,10 +41,9 @@ func event(timer: NSTimer!) {
 
 ## Side notes:
 
-You should probably assert if thetimer is nil before starting a timer if its not nil then invalidate it
+You should probably assert if the timer is nil before starting a timer if its not nil then invalidate it
 
 ## Resources:
 
 perform_selector in swift: (this can be used to call methods/functions by a string)
 https://github.com/tokorom/performSelector-swift
-

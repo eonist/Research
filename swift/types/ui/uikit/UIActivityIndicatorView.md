@@ -40,3 +40,26 @@
     }
 ```
 link: https://coderwall.com/p/6onn0g/adding-progress-icon-programmatically-to-a-new-uiview
+
+
+or
+
+
+```swift
+class LoadingViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let spinner = UIActivityIndicatorView(style: .gray)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        view.addSubview(spinner)
+
+        // Center our spinner both horizontally & vertically
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+}
+```

@@ -1,3 +1,6 @@
+https://medium.com/swift-india/uialertcontroller-in-swift-22f3c5b1dd68
+
+
 ### With input-textField
 
 ```swift
@@ -28,4 +31,24 @@ with(UIAlertController(title: nil, message: "Prefrences", preferredStyle: .actio
    $0.addAction(cancelAction)
    self.parentViewController?.present($0, animated: true, completion: nil)
 }
+```
+
+## user input:
+
+```swift
+let alert = UIAlertController(title: "What's your name?", message: nil, preferredStyle: .alert)
+alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+alert.addTextField(configurationHandler: { textField in
+    textField.placeholder = "Input your name here..."
+})
+
+alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+    if let name = alert.textFields?.first?.text {
+        print("Your name: \(name)")
+    }
+}))
+
+self.present(alert, animated: true)
 ```

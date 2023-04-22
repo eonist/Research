@@ -1,7 +1,6 @@
 # Includes
-Includes are reusable pieces of HTML, akin to symbols in Illustrator. We can create one file with some HTML in it, then use that file in multiple locations. If we update the single file all uses will automatically get updated.
-
-To create an include we first need to make the specialized folder: `_includes`. Put it in the same place as `_layouts` and index.html.
+- Includes are reusable pieces of HTML, akin to symbols in Illustrator. We can create one file with some HTML in it, then use that file in multiple locations. If we update the single file all uses will automatically get updated.
+- To create an include we first need to make the specialized folder: `_includes`. Put it in the root folder, the same place as `_layouts` and index.html.
 
 ```
 _config.yml
@@ -10,7 +9,7 @@ _layouts/
 index.html
 ```
 
-Then inside that folder make your HTML file, named with the .html extension. Here’s an example:
+- Then inside that folder make your HTML file, named with the .html extension. Here’s an example:
 
 button.html
 
@@ -69,3 +68,16 @@ We don’t have to put our includes into the `_includes` folder if we use the in
 ```
 
 This could be a main.css file that includes all the other smaller files to make our website more performant.
+
+### Other example:
+
+In `_includes/header.html`:
+```
+<h1 style="color: {{ include.color }}">{{ site.title }}</h1>
+<hr><br>
+```
+
+In `_layouts/wrapper.html`:
+```
+{% include header.html color="blue" %} // styles the title blue
+```

@@ -1,5 +1,7 @@
 # Collections
-Collections are a mechanism in Jekyll that allow us to have a grouping of documents. The grouping can either act like datafiles or can act like pages and posts. In fact, posts are just built-in collections.
+Collections are a mechanism in Jekyll that allow us to have a grouping of documents.
+The grouping can either act like datafiles or can act like pages and posts.
+In fact, posts are just built-in collections.
 
 §Set up a collection in `_config.yml`
 The first thing we need to do is create a collection in `_config.yml`, telling Jekyll how to handle it.

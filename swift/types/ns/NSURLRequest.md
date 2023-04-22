@@ -9,6 +9,6 @@ If you want to have more control over how the request is performed, you can use 
 NOTE
 NSURLRequest(URL:) creates a request that caches content according to the default caching policy of the protocol you’re using (e.g., HTTP caches depending on whether the server instructs it to, while FTP never caches) and times out after 60 seconds.”
 
-Excerpt From: iBooks. 
+Excerpt From: iBooks.
 
 */

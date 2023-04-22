@@ -7,7 +7,7 @@ Also works for pages in the site: to make a sitemap etc. `page in site.pages` et
 {% endfor %}
 ```
 
-- Ordering pages:
+- Ordering pages: (order they loop)
 ```
 01_about.md
 02_photos.md
@@ -23,4 +23,4 @@ Could potentially use collection as well to filter
 {% endif %}
 ```
 
-You also have .dir .path .name etc
+You also use: .dir .path .name etc

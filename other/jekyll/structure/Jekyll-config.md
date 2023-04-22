@@ -9,7 +9,7 @@ Terminal: `jekyll serve`
 
 ### Base-URL:
 If you have a custom domain, set it to:
-`lightstream.to`
+`yourdomain.com`
 
 if you have a github page only:
-`name_of_repo`
+`name_of_repo.github.io`

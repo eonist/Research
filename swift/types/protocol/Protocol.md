@@ -17,16 +17,16 @@ let b = B()
 ### Basic overriding of methods in protocol
 
 ```swift
-protocol X{}
-protocol Y:X{}
-extension X{
+protocol X {}
+protocol Y: X {}
+extension X {
     func doSomething(){print("doSomething.X")}
 }
-extension Y{
+extension Y {
     func doSomething(){print("doSomething.Y")}//sort of overrides X
 }
-class A:X{}
-class B:Y{}
+class A: X {}
+class B: Y {}
 
 let a = A()
 a.doSomething()//doSomething.X
@@ -263,4 +263,10 @@ extension UIViewController: UIViewControllerProtocol {}
 class MyClass {
     var controller: protocol<UIViewControllerProtocol, CustomProtocol>
 }
+```
+
+### Class and AnyObject
+```swift
+protocol P: class { /*...*/ }
+protocol Q: AnyObject { /*...*/ }
 ```

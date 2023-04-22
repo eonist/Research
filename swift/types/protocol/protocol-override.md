@@ -21,6 +21,33 @@ let b = B()
 b.doSomething()//doSomething.y
 ```
 
+## Overide:
+this defaults to struct call over protocol extension call. (must be added as protocoll requirment)
+```swift
+protocol X {
+   func debug()
+}
+extension X {
+   func debug(){
+      print("Debug x")
+   }
+   func test(){
+      print("test X")
+   }
+}
+struct A: X {}
+extension A {
+   func debug() {
+      Swift.print("debug A")
+   }
+
+}
+let a: X = A()
+a.debug() // debug A
+a.test() // test X
+
+```
+
 ## Real override
 ⚠️️IMPORTANT⚠️️: You can only override methods that are in class extensions. Doesn't work with protocol extensions
 ```swift
@@ -63,7 +90,7 @@ extension B{
         Swift.print("B.f()")
         return A()
     }
-    
+
 }
 
 let b = B()
@@ -107,8 +134,8 @@ If you make sure to define each subclass in a separate swift source file, you ca
  // this extension can be in a separate file but not in the same
  // file as the BaseClass extension that defines its doMethod1 implementation
  extension A{
-    private func doMethod1(param:Int) -> String { 
-       return "A \(param) added to \(super.method1(param))" 
+    private func doMethod1(param:Int) -> String {
+       return "A \(param) added to \(super.method1(param))"
     }
  }
 ...
@@ -119,8 +146,8 @@ If you make sure to define each subclass in a separate swift source file, you ca
  }
 
  extension B{
-    private func doMethod1(param:Int) -> String { 
-       return "B \(param) added to \(super.method1(param))" 
+    private func doMethod1(param:Int) -> String {
+       return "B \(param) added to \(super.method1(param))"
     }
  }
 Each class's extension are able to use the same method names for the implementation because they are private and not visible to each other (as long as they are in separate files).

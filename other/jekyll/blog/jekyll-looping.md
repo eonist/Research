@@ -1,10 +1,11 @@
 # Looping posts:
 
-Syntax for `_layouts/home.html`:
+- Syntax for `_layouts/home.html`:
+- Use this to make a grid of blog posts etc
 
 ```
 {% for post in site.posts %} <!––looping through posts––>
-	<li> <a href="{{ post.url }}">{{ post.title }}</a></li>
+	<li> <a href="{{ post.url }}">{{ post.title }}</a></li> <!-- extracts url and title for the post -->
 {% endfor %}
 ```
 

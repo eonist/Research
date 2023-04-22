@@ -29,7 +29,7 @@ Cocoa Programming L53 - Groups in NSTableView
 //Add the tableView(viewForTableColumn:row:) method to AppDelegate. This method returns an NSView that will appear in the table view cell, based on the row number and column used:
 func test(){
 	 func tableView(tableView: NSTableView!, viewForTableColumn tableColumn: NSTableColumn!, row: Int) -> NSView!  {
-
+		 // recycle cell
         let cell = tableView.makeViewWithIdentifier(tableColumn.identifier, owner: self) as NSTableCellView
 
         let textField = cell.textField
@@ -75,6 +75,64 @@ func test(){
         tableView.reloadData()
     }
 }
+```
 
 
+### Custom selection background:
+
+https://stackoverflow.com/questions/9463871/change-selection-color-on-view-based-nstableview
+
+```swift
+ class MyNSTableRowView: NSTableRowView {
+
+     override func drawSelection(in dirtyRect: NSRect) {
+         if self.selectionHighlightStyle != .none {
+             let selectionRect = NSInsetRect(self.bounds, 2.5, 2.5)
+             NSColor(calibratedWhite: 0.65, alpha: 1).setStroke()
+             NSColor(calibratedWhite: 0.82, alpha: 1).setFill()
+             let selectionPath = NSBezierPath.init(roundedRect: selectionRect, xRadius: 6, yRadius: 6)
+             selectionPath.fill()
+             selectionPath.stroke()
+         }
+     }
+ }
+// NSTableViewDelegate
+ func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+    return MyNSTableRowView()
+}
+```
+## Better custom selection code:
+
+```swift
+class AudioCellView: NSTableRowView {
+
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        self.wantsLayer = true
+        self.layer?.backgroundColor = NSColor.white.cgColor
+    }
+
+    override var isEmphasized: Bool {
+        set {}
+        get {
+            return false
+        }
+    }
+
+    override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
+        set {}
+        get {
+            return .regular
+        }
+    }
+
+    override func drawSelection(in dirtyRect: NSRect) {
+        if self.selectionHighlightStyle != .none {
+            let selectionRect = NSInsetRect(self.bounds, 2.5, 2.5)
+            NSColor(calibratedWhite: 0.85, alpha: 0.6).setFill()
+            let selectionPath = NSBezierPath.init(rect: selectionRect)
+            selectionPath.fill()
+        }
+    }
+}
 ```

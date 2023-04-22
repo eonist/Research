@@ -406,7 +406,7 @@ enum Error: ErrorType {
     case IncorrectSignIn
     case InvalidPassword
 }
-extension Error: CustomStringConvertible{
+extension Error: CustomStringConvertible {
     var description : String {
         get {
             switch self {
@@ -512,11 +512,12 @@ func login() {
 
 ### Rethrows:
 
-The rethrows keyword indicates to the compiler that the outer function is a throwing function only if the closure passed in throws an error that is propagated to the current scope. Basically with rethrows, we can use throw inside the closure. When the error handlers are called within the function we use throws.
+- The rethrows keyword indicates to the compiler that the outer function is a throwing function only if the closure passed in throws an error that is propagated to the current scope.
+- Basically with rethrows, we can use throw inside the closure. When the error handlers are called within the function we use throws.
 
 ```swift
 typealias MagicalOperation = () throws -> MagicalResult
-func doSomethingMagical(magicalOperation:MagicalOperation) rethrows -> MagicalResult {
+func doSomethingMagical(magicalOperation: MagicalOperation) rethrows -> MagicalResult {
   return try magicalOperation()
 }
 

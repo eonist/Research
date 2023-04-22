@@ -1,13 +1,26 @@
-//Generics
+## Generics
+Lots of good info on generics: https://www.kodeco.com/books/expert-swift/v1.0/chapters/4-generics
+```swift
 //NOTE: generics are better than using any or anyobject in that they keep the type that was passed to them
 //great example: http://www.thomashanning.com/swift-generics/
 //really good on advance generics: http://austinzheng.com/2015/09/29/swift-generics-pt-2/
 //also good: http://oleb.net/blog/2015/09/swift-ranges-and-intervals/  (talks about limitation with max int values etc)
 
+
+```
+### Simple generics:
+```swift
+// constrain T to type:
+func add<T: UIView>(view: T) -> T {
+    view.parent.addSubview(view)
+    return view
+}
+```
 ### Generics (subclassing)
 
 ```swift
-class A<T>{
+// A
+class A<T> {
    /**
     *
     */
@@ -16,7 +29,7 @@ class A<T>{
        }
    }
 }
-
+// B
 class B: A<String> {
    override var data: String? {
        didSet{
@@ -24,6 +37,7 @@ class B: A<String> {
        }
    }
 }
+// C
 class C: B {}
 
 let a = A<Int>()

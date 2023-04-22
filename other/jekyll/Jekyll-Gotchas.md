@@ -18,3 +18,4 @@ http://192.168.1.156:4000
 
 ### Gotchas
 - If you set a blog post to a date that hasn't happened yet it wont show up until that date. (Nice way to que posts)
+- Be careful with tab in loop code it might mess up the html output etc. use spaces instead. 

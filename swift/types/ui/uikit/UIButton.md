@@ -5,7 +5,7 @@ let btn: UIButton = UIButton(type: .system)
 btn.backgroundColor = .gray
 btn.setTitle("Button", for: .normal)
 btn.setTitleColor(.black, for: .normal)
-btn.titleLabel?.textAlignment = .center
+btn.titleLabel?.textAlignment = .center // wont work with left etc, use: yourButton.contentHorizontalAlignment = .left
 btn.titleLabel?.font =  .systemFont(ofSize: 12)
 btn.frame = CGRect(x:100, y:50, width:100, height:50)
 btn.addTarget(self, action: #selector(buttonTouched), for: .touchUpInside)
@@ -102,7 +102,6 @@ extension CustomButton{
 
 ### UIButton
 ```swift
-
 let btn = UIButton(type: .system)
 btn.backgroundColor = UIColor.green
 //      btn.setTitle("Button", forState: UIControlState.Normal)

@@ -53,7 +53,7 @@ for (var key in obj) {
 
 ```
 
-### json asserting:
+### JSON asserting:
 
 Some nice json parsing: https://sketchpacks.com/kvendrik/sketch-json-parser
 More nixe json parsing: https://github.com/davidklaw/sketch-generator-spotify/blob/master/Spotify.generator.sketchplugin

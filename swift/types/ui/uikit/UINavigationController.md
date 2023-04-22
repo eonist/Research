@@ -12,7 +12,6 @@ link:
 
 
 ```swift
-
 //transitioning views in from the left w/o navcontroller:
 /*other options here -> https://stackoverflow.com/a/42627260/5389500*/
 extension UIViewController {

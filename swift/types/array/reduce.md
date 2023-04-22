@@ -1,24 +1,28 @@
+### Reduce to total amount
+```swift
+let totalW: CGFloat = TabType.allCases.reduce(CGFloat(0)) { // sum something
+   $0 + itemWidth(text: $1.rawValue)
+}
+```
+
 ### Reduce into a tuple:
 ```swift
-let res:(String,String) = [("a","1"),("b","2"),("c","3")].reduce(("","")){($0.0 + $1.0, $0.1 + $1.1)}
+let res: (String, String) = [("a","1"),("b","2"),("c","3")].reduce(("","")){($0.0 + $1.0, $0.1 + $1.1)}
 Swift.print("res: " + "\(res)")//("abc","123")
 ```
 
 ### Reduce to different type (array to string):
 ```swift
-let s: String = [1,2,3].reduce(""){"\($0)" + "\($1)"}
+let s: String = [1, 2, 3].reduce("") {"\($0)" + "\($1)" }
 Swift.print("s: " + "\(s)")
 //alternative:
 let str: String = ["1", "2", "3"].joined(separator: "")
-
 ```
 
 ### shorter version
 ```swift
-[0,1,1,0].map{"\($0)"}.reduce("",+)//"0110"
-
+[0, 1, 1, 0].map { "\($0)" }.reduce("", +) // "0110"
 //or combining data
-
 let d: Data = [Data(), Data()].compactMap{ $0 }.reduce(Data(),+)//Data()
 ```
 
@@ -40,8 +44,9 @@ partition([1, 2, 3, 4, 5, 6, 7, 8, 9], criteria: { $0 % 2 == 0 })
 
 ### Reduce into Dict
 ```swift
-let dict: [String: String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
-    var dict: [String:String] = $0
+let arr = [(key: "",val: ""), (key: "", val: "")]
+let dict: [String: String] = arr.reduce([:]) {
+    var dict: [String: String] = $0
     dict[$1.key] = $1.val
     return dict
 }
@@ -51,7 +56,7 @@ let dict: [String: String] = [(key:"",val:""),(key:"",val:"")].reduce([:]) {
 
 ```swift
 //instead of someAre, you can also do: let (checked,unChecked) if you want two values instead of a tuple
-typealias Acc = (checked:Bool,unChecked:Bool)
+typealias Acc = (checked: Bool, unChecked: Bool)
 let someAre: Acc = descendants.reduce((false, false)) { (ac: Acc, tree: Tree) -> Acc in
     var ac = ac
     if let prop = tree.props?["active"]  {
@@ -85,7 +90,7 @@ let arr: [Int] = [(0,""),(1,"")].reduce([]) { $0 + [$1.0] }//[0, 1]
 
 ### Reducing a Dictionary into a String:
 ```swift
-let dict = ["John":"🔵","Donna":"🔴"]
+let dict = ["John": "🔵", "Donna": "🔴"]
 
 let str = dict.reduce("") {
     return $0 + "\($1.key) likes the color: \($1.value) "
@@ -103,11 +108,11 @@ Set([55,4,5,3,3,4].map { $0 })//[4, 3, 5, 55]
 ```swift
 let strings: [String?] = ["Red", "Orange", nil, "Blue"]
 var longestString: String = strings.compactMap { $0 }.reduce("") { $0.count > $1.count ? $0 : $1 }
-Swift.print("longestString:  \(longestString)")//orange
+Swift.print("longestString:  \(longestString)") // orange
 ```
 
 ### Reduce to find highest number:
-// you can also use .max(), but it doesnt support UInt8 etc
+// you can also use .max(), but it doesn't support UInt8 etc
 ```swift
 let max: UInt8 = arr.compactMap { $0 }.reduce(UInt8(0)) { $0 > $1 ? $0 : $1 }
 ```

@@ -5,21 +5,21 @@ let shortHandDictionary = [String:String]()
 let shorterHandDictionary = [:]
 ```
 
-//Creates a new dictonary
+// Creates a new dictonary
 ```swift
-var dict:Dictionary<String, String> = Dictionary<String, String>()
+var dict: Dictionary<String, String> = Dictionary<String, String>()
 ```
 
 **If you ever need deep copy of a Dictionary:** Drawkit- NSDictionary+DeepCopy.m
 
-//dictionaries are like associative arrays
-//the following two declarations are equivalent:
+// dictionaries are like associative arrays
+// the following two declarations are equivalent:
 
 
 ```swift
 func testing(){
-    let newDict = Dictionary<String, Int>//long hand
-    let anotherDict = [String:Int]()//<-shorthand
+    let newDict = Dictionary<String, Int> // long hand
+    let anotherDict = [String:Int]() // <-shorthand
 
     let someDictionary: [String: Int] = ["Alex": 31, "Paul": 39]
     let someDictionary2: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
@@ -100,7 +100,7 @@ func testing(){
         print("\(myKey) \t \(myValue)")
     }
     //make a 10% price increase
-    for myKey  in toppings.keys{
+    for myKey  in toppings.keys {
         toppings[myKey] = toppings[myKey]! * 1.10
     }
 
@@ -139,14 +139,14 @@ func testing(){
 
 
 ```swift
-let h:Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
-let i:Dictionary<String, Int> = ["Alex": 32, "Paul": 39]
+let h: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
+let i: Dictionary<String, Int> = ["Alex": 32, "Paul": 39]
 
 Swift.print(h == i)//false
 
 let temp = [h,i]
 
-let index = temp.indexOf {$0 == i} ?? -1//-1 indicates no result found
+let index = temp.indexOf { $0 == i } ?? -1//-1 indicates no result found
 
 index//1
 //
@@ -160,20 +160,14 @@ nameDict.keys[nameDict.startIndex.advancedBy(0)]
 Sorting dictionary:
 
 ```swift
-
-
-let dict = ["b":2,"a":1,"c":3]
-(Array(dict).sorted{$0.1 < $1.1}).forEach{(k,v) in print("\(k):\(v)")}
+let dict = ["b": 2, "a": 1, "c": 3]
+// (Array(dict).sorted{$0.1 < $1.1}).forEach{(k,v) in print("\(k):\(v)")}
+Array(self).sorted { $0.key < $1.key }.forEach { $0 }
 //Output: a:1, b:2, c:3
-
-
 //Swap out the `.forEach` with `.map` 👉 Functional programming 🤖
 ```
 
-
-
 ### Manipulate key and value
-
 ```swift
 let newDict = Dictionary(uniqueKeysWithValues: oldDict.map { key, value in (key.uppercased(), value.lowercased()) })
 ```
@@ -181,11 +175,23 @@ let newDict = Dictionary(uniqueKeysWithValues: oldDict.map { key, value in (key.
 ## mapValues:
 ```swift
 let dictionary = ["foo": 1, "bar": 2, "baz": 5]
-
-let newDictionary = dictionary.mapValues { value in
-return value + 1
+let newDictionary = dictionary.mapValues { value in // there is also compactMapValues
+   return value + 1
 }
-//let newDictionary = dictionary.mapValues { $0 + 1 } // also works
-
+// let newDictionary = dictionary.mapValues { $0 + 1 } // also works
 print(newDictionary) // prints: ["baz": 6, "foo": 2, "bar": 3]
+```
+
+### Has key:
+```swift
+// if you know value cant be nil
+dict["someKey"] != nil
+// or if value can be nil: (bit slower)
+dict.keys.contains("somekey")
+```
+
+### Compactmap values
+```swift
+let dict: [String, Any] = [:]
+let newDict: [String: String] = dict.compactMapValues { $0 as? String }
 ```

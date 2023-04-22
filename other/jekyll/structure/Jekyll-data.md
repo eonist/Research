@@ -1,8 +1,7 @@
-
 ### Data files:
-Data files are a great way to separate the content from the its presentation HTML. Data files are mostly written in YAML, but other languages can also be used.
-
-First create a new folder in your Jekyll website named `_data`, put it in the same location as the index.html and the `_layouts` folder.
+- Data files are a great way to separate the content from the it's presentation HTML.
+- Data files are mostly written in YAML, but other languages can also be used.
+- First create a new folder in your Jekyll website named `_data`, put it in the same location as the index.html and the `_layouts` folder.
 
 ```
 _config.yml
@@ -37,6 +36,5 @@ After we have the data file created we can use it in our website. The great thin
   </dl>
 {% endfor %}
 ```
-Using a for loop we’re looping over every entry in the data file. The site.data.dinos is how we access our data file—the .dinos part is exactly the name of the file.
-
-Because there are three dinosaurs in the data file, Jekyll will automatically output the above HTML three times: once for each dinosaur.
+- Using a for loop we’re looping over every entry in the data file. The site.data.dinos is how we access our data file—the .dinos part is exactly the name of the file.
+- Because there are three dinosaurs in the data file, Jekyll will automatically output the above HTML three times: once for each dinosaur.
