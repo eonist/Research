@@ -270,3 +270,19 @@ class MyClass {
 protocol P: class { /*...*/ }
 protocol Q: AnyObject { /*...*/ }
 ```
+
+
+```swift
+ Protocols: Inheritance and composition
+
+In previous tip you can observe how to split your protocol to smaller pieces. Here I will show you how to combine your protocols to make bigger one using inheritance and composition. To merge protocols together use & for protocol composition.
+
+typealias Codable = Decodable & Encodable
+You can also use protocol inheritance to build larger protocols.
+
+protocol CarEngineStatusDelegate { }
+protocol CarMovingStatusDelegate { }
+protocol CarDelegate: CarMovingStatusDelegate, CarEngineStatusDelegate { }
+```
+
+optional protocols 

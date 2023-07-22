@@ -1,21 +1,21 @@
 //inheritance info: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID203
-//Access levels in Swift 
-//NOTE: private only accessible from within the same source code file 
-//NOTE: internal This is the default accessible across multiple code files, but must be compiled together into the same module 
-//NOTE: public accessible from any module that has imported yours 
+//Access levels in Swift
+//NOTE: private only accessible from within the same source code file
+//NOTE: internal This is the default accessible across multiple code files, but must be compiled together into the same module
+//NOTE: public accessible from any module that has imported yours
 
 //list superclass names: https://books.google.no/books?id=AYonCgAAQBAJ&pg=PA18&lpg=PA18&dq=list+superclass+swift&source=bl&ots=CAg5jeCqhE&sig=09AMGUBkiK601C7COjP-7n20lsQ&hl=en&sa=X&ved=0CC4Q6AEwB2oVChMI7eDJnMukyAIVJXVyCh2K7wul
 
-//Changing access levels public 
+//Changing access levels public
 class Player {
-	//properties no modifier, will default to internal 
+	//properties no modifier, will default to internal
 	var name:String
     var score:Int
-	//public methods 
+	//public methods
 	public func description(){
 		printin ("Player V (name) has a score of V (score)")
 	}
-	//private methods 
+	//private methods
 	private func calculateBonus (){
 		//
 	}
@@ -62,8 +62,8 @@ printin("your value: \(newPerson.desc())")
  	//property observere
  	var nickName:String = "Joey"{
  		willSet{//called before you set a value
- 			
- 			
+
+
  			("your value: \(newValue)")
  		}
  		didSet(oldNickName){//called after you set a value, the oldNickName enables you to rename the default oldValue
@@ -83,18 +83,18 @@ printin("your value: \(newPerson.desc())")
  	}
  	/**
 	 * convenince initializers are a way to have many inits that can have different ways of initing your class
-	 * NOTE: the convenince initializer must call the designated initializer at somepoint. 
+	 * NOTE: the convenince initializer must call the designated initializer at somepoint.
 	 */
 	convenience init(fullName:String){
 		self.init()//when using a convenince initializer you must call the designated initializer before setting any properties
 		var fullNameArray = newValue.componentsSeperatedByString(" ")//newValue is the value you resive from the setter
 		self.firstName = fullNameArray[0]
 		self.lastName = fullNameArray[1]
-		
+
 	}
  	func calcBonus()->Int{
 		return 5+2
-	}		
+	}
  	override func desc()->String{
  		return super.description + " " + sallery
  	}
@@ -106,7 +106,7 @@ printin("your value: \(newPerson.desc())")
  	 */
  	var fullName:String {
 	 	get{//getter
-			 return firstName + " " + lastName 	
+			 return firstName + " " + lastName
 	 	}
 		set{//setter
 			 var fullNameArray = newValue.componentsSeperatedByString(" ")//newValue is the value you resive from the setter
@@ -122,9 +122,9 @@ printin("your value: \(newPerson.desc())")
  printin("your value: \(sammy.sallery)")
  printin("your value: \(sammy.desc)")
  printin("your value: \(sammy.fullName)")
- 
- 
- 
+
+
+
 //Preventing Overrides:
 
 //You can prevent a method, property, or subscript from being overridden by marking it as final. Do this by writing the final modifier before the method, property, or subscript’s introducer keyword (such as final var, final func, final class func, and final subscript).
@@ -159,6 +159,28 @@ public class MyBaseClass {
     }
 
     MyDerivedClass().name
-	 
-	 
+
+
 	 */
+
+
+	 // You indicate type methods by writing the static keyword
+	 // before the method’s func keyword. Classes may also use
+	 // the class keyword to allow subclasses to override
+	 // the superclass’s implementation of that method.
+
+	 class Service {
+	     class func fetchData() { }
+	     static func sendData() { }
+	 }
+
+	 class MovieService: Service {
+	     override class func fetchData() { }
+	     // Cannot override static function
+	     // override static func sendData() { }
+	 }
+
+	 // No longer have to initialize an object to access functions.
+	 Service.sendData()
+	 MovieService.fetchData()
+```

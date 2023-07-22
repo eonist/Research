@@ -102,3 +102,26 @@ func equals<T:Comparable>(a:Range<T>,_ b:Range<T>)->Bool {
 
 equals(newRange, anotherRange)
 ```
+
+
+## NSRange to range
+
+```swift
+
+let string = "monkey"
+let oldString = "Finland"
+print(oldString.count) // 7
+let start = 2
+let end = oldString.count // 7
+let length = end - start // 5
+print(length)
+let range = NSMakeRange(start,length) // let range = NSRange(0, 3)
+print(range.location) // 2
+print(range.lowerBound) // 2
+print(range.upperBound) // 7
+print(range.length) // 6
+let rng = Range(range, in: oldString)!
+print(range) // {2, 5}
+let newString = oldString.replacingCharacters(in: rng, with: string)
+print(newString) // Fimonkey
+```

@@ -374,3 +374,28 @@ case is TertiaryCellData: Swift.print("someValue")
 default: UITableViewCell.init()
 }
 ```
+
+
+```swift
+class X {}
+
+class A: X {}
+class B: X {}
+
+func test(param: Any) {
+    switch param { // the order is imp. if X is first then all will match X etc
+        case is A: print("a")
+        case is B: print("b")
+        case is X: print("x")
+        default: print("no match")
+    }
+}
+
+let x = X()
+let a = A()
+let b = B()
+
+test(param: x) // x
+test(param: a) // a
+test(param: b) // b
+```

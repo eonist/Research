@@ -57,6 +57,8 @@ public typealias Color = NSColor
 ```
 
 ### Debug
+figure out if it is debug in test-flight, or just when running UITest or in simulator etc?
+we might also use #can import xcuitest etc
 ```swift
 #if DEBUG
   performAdditionalChecks()
