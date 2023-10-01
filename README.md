@@ -1,3 +1,3 @@
 ### Research
 
-Mostly swift notes and book reviews
+Mostly code notes and book reviews
