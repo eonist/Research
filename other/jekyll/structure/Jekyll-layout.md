@@ -19,9 +19,10 @@ permalink: /about/
 ```
 
 ### Then you will see in safari:
+```
 This is a post
 then whatever is in your markdown here
-
+```
 ### Other expands
 ```html
 <h3>{{ layout.author }}</h3> <!-- for layout author -->
@@ -29,4 +30,4 @@ then whatever is in your markdown here
 <title>{{ site.title }}</title> <!-- Edits the html title -->
 ```
 
-More expands: [https://jekyllrb.com/docs/variables/](https://jekyllrb.com/docs/variables/)
+- More expands: [https://jekyllrb.com/docs/variables/](https://jekyllrb.com/docs/variables/)

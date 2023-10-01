@@ -1,6 +1,7 @@
 # conditionals:
 
 ### Add this to the `_layouts/custom.html`
+
 ```
 {% if page.title == "Hello World"%}
 	This is the first post

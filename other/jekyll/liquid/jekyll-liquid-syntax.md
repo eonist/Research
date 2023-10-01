@@ -1,19 +1,19 @@
-resource:
+# Liquid expands:
 
-https://gist.github.com/JJediny/a466eed62cee30ad45e2
+the bellow is from this link: https://gist.github.com/JJediny/a466eed62cee30ad45e2
 
 
 There are two types of markup in Liquid: Output and Tag.
 
-* Output markup (which may resolve to text) is surrounded by
+* **Output markup** (which may **resolve to text**) is surrounded by
 
-```liquid
+```yaml
 {{ matched pairs of curly brackets (ie, braces) }}
 ```
 
-* Tag markup (which cannot resolve to text) is surrounded by
+* **Tag markup** (which **cannot** resolve to text) is surrounded by
 
-```liquid
+```yaml
 {% matched pairs of curly brackets and percent signs %}
 ```
 
@@ -21,7 +21,7 @@ There are two types of markup in Liquid: Output and Tag.
 
 Here is a simple example of Output:
 
-```liquid
+```YAML
 Hello {{name}}
 Hello {{user.name}}
 Hello {{ 'tobi' }}
@@ -31,12 +31,14 @@ Hello {{ 'tobi' }}
 
 ### Advanced output: Filters
 
-Output markup takes filters.  Filters are simple methods.  The first parameter
-is always the output of the left side of the filter.  The return value of the
-filter will be the new left value when the next filter is run.  When there are
+- Output markup takes filters. Filters are simple methods. The first parameter
+is always the output of the left side of the filter. The return value of the
+filter will be the new left value when the next filter is run. When there are
 no more filters, the template will receive the resulting string.
 
-```liquid
+- Left is the value, right is the operation
+
+```yaml
 Hello {{ 'tobi' | upcase }}
 Hello tobi has {{ 'tobi' | size }} letters!
 Hello {{ '*tobi*' | textilize | upcase }}
@@ -98,20 +100,19 @@ Here is a list of currently supported tags:
 * **raw** - temporarily disable tag processing to avoid syntax conflicts.
 * **unless** - Mirror of if statement
 
-### Comments
-
+### HTML comments?
 Any content that you put between `{% comment %}` and `{% endcomment %}` tags is turned into a comment.
 
-```liquid
+```YAML
 We made 1 million dollars {% comment %} in losses {% endcomment %} this year
 ```
 
 ### Raw
 
-Raw temporarily disables tag processing.
+Raw temporarily **disables** tag processing.
 This is useful for generating content (eg, Mustache, Handlebars) which uses conflicting syntax.
 
-```liquid
+```YAML
 {% raw %}
   In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
 {% endraw %}
@@ -123,20 +124,20 @@ This is useful for generating content (eg, Mustache, Handlebars) which uses conf
 Liquid allows you to write simple expressions in the `if` or `unless` (and
 optionally, `elsif` and `else`) clause:
 
-```liquid
+```YAML
 {% if user %}
   Hello {{ user.name }}
 {% endif %}
 ```
 
-```
+```YAML
 # Same as above
 {% if user != null %}
   Hello {{ user.name }}
 {% endif %}
 ```
 
-```liquid
+```YAML
 {% if user.name == 'tobi' %}
   Hello tobi
 {% elsif user.name == 'bob' %}
@@ -144,32 +145,32 @@ optionally, `elsif` and `else`) clause:
 {% endif %}
 ```
 
-```liquid
-{% if user.name == 'tobi' or user.name == 'bob' %}
+```YAML
+{% if user.name == 'tobi' or user.name == 'bob' %} ## or operator
   Hello tobi or bob
 {% endif %}
 ```
 
-```liquid
-{% if user.name == 'bob' and user.age > 45 %}
+```YAML
+{% if user.name == 'bob' and user.age > 45 %} ## and operator
   Hello old bob
 {% endif %}
 ```
 
-```liquid
+```YAML
 {% if user.name != 'tobi' %}
   Hello non-tobi
 {% endif %}
 ```
 
-```liquid
+```YAML
 # Same as above
 {% unless user.name == 'tobi' %}
   Hello non-tobi
 {% endunless %}
 ```
 
-```liquid
+```YAML
 # Check for the size of an array
 {% if user.payments == empty %}
    you never paid !
@@ -180,7 +181,7 @@ optionally, `elsif` and `else`) clause:
 {% endif %}
 ```
 
-```liquid
+```YAML
 {% if user.age > 18 %}
    Login here
 {% else %}
@@ -188,14 +189,14 @@ optionally, `elsif` and `else`) clause:
 {% endif %}
 ```
 
-```liquid
+```YAML
 # array = 1,2,3
 {% if array contains 2 %}
    array includes 2
 {% endif %}
 ```
 
-```liquid
+```YAML
 # string = 'hello world'
 {% if string contains 'hello' %}
    string includes 'hello'
@@ -206,7 +207,7 @@ optionally, `elsif` and `else`) clause:
 
 If you need more conditions, you can use the `case` statement:
 
-```liquid
+```YAML
 {% case condition %}
 {% when 1 %}
 hit 1
@@ -219,7 +220,7 @@ hit 2 or 3
 
 *Example:*
 
-```liquid
+```YAML
 {% case template %}
 
 {% when 'label' %}
@@ -233,10 +234,10 @@ hit 2 or 3
 
 ### Cycle
 
-Often you have to alternate between different colors or similar tasks.  Liquid
+Often you have to alternate between different colors or similar tasks. Liquid
 has built-in support for such operations, using the `cycle` tag.
 
-```liquid
+```YAML
 {% cycle 'one', 'two', 'three' %}
 {% cycle 'one', 'two', 'three' %}
 {% cycle 'one', 'two', 'three' %}
@@ -245,7 +246,7 @@ has built-in support for such operations, using the `cycle` tag.
 
 will result in
 
-```
+```YAML
 one
 two
 three
@@ -258,7 +259,7 @@ calls with the same parameters are one group.
 If you want to have total control over cycle groups, you can optionally specify
 the name of the group.  This can even be a variable.
 
-```liquid
+```YAML
 {% cycle 'group 1': 'one', 'two', 'three' %}
 {% cycle 'group 1': 'one', 'two', 'three' %}
 {% cycle 'group 2': 'one', 'two', 'three' %}
@@ -278,15 +279,15 @@ two
 
 Liquid allows `for` loops over collections:
 
-```liquid
+```YAML
 {% for item in array %}
   {{ item }}
 {% endfor %}
 ```
 
-When iterating a hash (dictionary), `item[0]` contains the key, and `item[1]` contains the value:
+When iterating a hash (**dictionary**), `item[0]` contains the key, and `item[1]` contains the value:
 
-```liquid
+```YAML
 {% for item in hash %}
   {{ item[0] }}: {{ item[1] }}
 {% endfor %}
@@ -295,7 +296,7 @@ When iterating a hash (dictionary), `item[0]` contains the key, and `item[1]` co
 During every `for` loop, the following helper variables are available for extra
 styling needs:
 
-```liquid
+```YAML
 forloop.length      # => length of the entire for loop
 forloop.index       # => index of the current iteration
 forloop.index0      # => index of the current iteration (zero based)
@@ -311,7 +312,7 @@ your loop
 `limit:int` lets you restrict how many items you get.
 `offset:int` lets you start the collection with the nth item.
 
-```liquid
+```YAML
 # array = [1,2,3,4,5,6]
 {% for item in array limit:2 offset:2 %}
   {{ item }}
@@ -321,7 +322,7 @@ your loop
 
 **Reversing the loop**
 
-```liquid
+```YAML
 {% for item in collection reversed %} {{item}} {% endfor %}
 ```
 
@@ -329,7 +330,7 @@ Instead of looping over an existing collection, you can define a range of
 numbers to loop through.  The range can be defined by both literal and variable
 numbers:
 
-```liquid
+```YAML
 # if item.quantity is 4...
 {% for i in (1..item.quantity) %}
   {{ i }}
@@ -339,7 +340,7 @@ numbers:
 
 A for loop can take an optional `else` clause to display a block of text when there are no items in the collection:
 
-```liquid
+```YAML
     # items => []
     {% for item in items %}
        {{ item.title }}
@@ -354,7 +355,7 @@ You can store data in your own variables, to be used in output or other tags as
 desired.  The simplest way to create a variable is with the `assign` tag, which
 has a pretty straightforward syntax:
 
-```liquid
+```YAML
 {% assign name = 'freestyle' %}
 
 {% for t in collections.tags %}{% if t == name %}
@@ -365,7 +366,7 @@ has a pretty straightforward syntax:
 Another way of doing this would be to assign `true / false` values to the
 variable:
 
-```liquid
+```YAML
 {% assign freestyle = false %}
 
 {% for t in collections.tags %}{% if t == 'freestyle' %}
@@ -382,7 +383,7 @@ a variable, you can do that with the `capture` tag. This tag is a block which
 "captures" whatever is rendered inside it, then assigns the captured value to
 the given variable instead of rendering it to the screen.
 
-```liquid
+```YAML
   {% capture attribute_name %}{{ item.title | handleize }}-{{ i }}-color{% endcapture %}
 
   <label for="{{ attribute_name }}">Color:</label>

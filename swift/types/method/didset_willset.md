@@ -62,6 +62,7 @@ class Foo {
 ```
 
 ### DidSet does not fire if its set on init:
+Use defer or closure to get around this
 
 ```swift
 class Tester{

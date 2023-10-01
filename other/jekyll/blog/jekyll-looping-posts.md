@@ -1,7 +1,7 @@
 # Looping posts:
 
 - Syntax for `_layouts/home.html`:
-- Use this to make a grid of blog posts etc
+- Use this to make a list or grid of blog posts etc
 
 ```
 {% for post in site.posts %} <!––looping through posts––>

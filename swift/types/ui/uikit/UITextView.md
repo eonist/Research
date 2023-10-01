@@ -20,7 +20,7 @@ The key to make text view height follow it's content is by NOT SET HEIGHT CONSTR
 theTextView.isScrollEnabled = false
 theTextView.text = "some text"
 theTextView.sizeToFit()
-But, if you already set the height constraint, then make it inactive
+// But, if you already set the height constraint, then make it inactive
 
 theTextViewHeightConstraint.isActive = false
 

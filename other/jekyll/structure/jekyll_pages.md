@@ -1,21 +1,22 @@
 ## Pages:
-Also works for pages in the site: to make a sitemap etc. `page in site.pages` etc
+Also works for pages in the site: to make a sitemap etc write: `page in site.pages` etc
 
+**html**
 ```
 {% for page in site.pages %}
 <li> <a href="{{ page.url }}">{{ page.title }}</a></li>
 {% endfor %}
 ```
 
-- Ordering pages: (order they loop)
+### Ordering pages hack: (order they loop)
 ```
-01_about.md
-02_photos.md
-03_projects.md
-99_contact.md
+pages/01_about.md
+pages/02_photos.md
+pages/03_projects.md
+pages/99_contact.md
 ```
 
-### Filtering on frontmater title:
+### Filtering on front-mater title:
 Could potentially use collection as well to filter
 ```
 {% if page.title != null %}
@@ -23,4 +24,4 @@ Could potentially use collection as well to filter
 {% endif %}
 ```
 
-You also use: .dir .path .name etc
+You also use: `.dir` `.path` `.name` etc

@@ -1,5 +1,6 @@
 ### Config.yml
 - Basic setup of your website. Title, description etc.
+
 ```
 permalink: pretty
 baseurl: /your-folder-on-github
@@ -11,5 +12,5 @@ Terminal: `jekyll serve`
 If you have a custom domain, set it to:
 `yourdomain.com`
 
-if you have a github page only:
+If you have a github page only:
 `name_of_repo.github.io`

@@ -1,11 +1,11 @@
 ### Header and footer:
-- First open your index.html file and look for stuff that will be common to every page, like headers, footers, DOCTYPE, etc.
+- First open your `index.html` file and look for stuff that will be common to every page, like headers, footers, DOCTYPE, etc.
 - Cut that stuff and put it into a new file: default.html. It doesn’t have to be called “default”, that’s just a convention.
 - Save this file into a folder named `_layouts/`
 
 ```yaml
 _config.yml
-_layouts/        ⬅︎ The layouts folder
+_layouts/   ## ⬅︎ The layouts folder
   └ default.html
 index.html
 ```
@@ -24,7 +24,7 @@ The file might look something like this:
     <nav></nav>
   </header>
   <main>
-    {{content}} <!-- this placeholder is where Jekyll will place the content from the index.html. -->
+    {{content}} <!-- This placeholder is where Jekyll will place the content from the index.html. -->
   </main>
   <footer>
     <p>©</p>
@@ -33,16 +33,15 @@ The file might look something like this:
 </html>
 ```
 
-Then, inside your index.md, all you’ll have left is this:
+Then, inside your `index.md`, all you’ll have left is this:
 
 ```
 ---
-layout: default
+layout: default ## <- we use the default layout as the wrapper
 ---
 
-<h1>Homepage</h1> <!--  this is the content -->
+<h1>Homepage</h1> <!--  this is the content that we embed in the wrapper -->
 ```
-
 
 If we have a folder setup like this:
 
@@ -55,14 +54,13 @@ about.md
 contact.md
 ```
 
-Then, the navigation inside our layout would look like this:
+Then, the **navigation** inside our layout would look like this:
 ```html
-
 <nav>
   <ul>
-    <li><a href="{{site.baseurl}}/">Home</a></li>
-    <li><a href="{{site.baseurl}}/plant-eaters/">Plant eaters</a></li>
-    <li><a href="{{site.baseurl}}/meat-eaters/">Meat eaters</a></li>
+    <li><a href="{{site.baseurl}}/">Home</a></li> <!-- index.md / index.html -->
+    <li><a href="{{site.baseurl}}/contact/">Contact</a></li>
+    <li><a href="{{site.baseurl}}/about/">About</a></li>
   </ul>
 </nav>
 ```

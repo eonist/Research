@@ -1,6 +1,6 @@
 ### Printing assets
 
-static files are pdf, png svg etc. all other files that does not have frontmater
+Static files are .pdf, .png, .svg etc. All other files that does not have frontmater
 
 `_layouts/home.html`
 
@@ -29,5 +29,5 @@ modified_time / time of modification
 ```
 
 ### Misc:
-- There is also the ability to add frontmater to speccific assets/img paths etc. So you can target content only inside this path etc.
+- There is also the ability to add **front-mater** to specific assets/img paths etc. So you can target content only inside this path etc.
 - See this link for more info https://www.youtube.com/watch?v=knWjmVlVpso

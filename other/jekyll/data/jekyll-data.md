@@ -1,8 +1,9 @@
 ### Formats supported:
 
-json, yml, csv
+.json, .yml, .csv
 
-people.yml
+`people.yml`
+
 ```yml
 - name: "mike"
   occupation: "andorid dev"
@@ -38,7 +39,7 @@ ben, mac dev
 melvin, ios dev
 ```
 
-## Nested data set:
+## Nested data set (multi-dim dictionary):
 
 ```yml
 - title: "Projects"
@@ -80,7 +81,7 @@ melvin, ios dev
 {% endfor %}
 ```
 
-```
+```html
 <h2>Projects</h3>
 
   <h3>project-sub1</h3>

@@ -5,7 +5,7 @@ http://localhost:4000 (http://127.0.0.1:4000/ should also work)
 ```
 
 ### View your site:
-View Your Jekyll Site Throughout Your Local Network
+View Your Jekyll Site Throughout Your **Local Network**
 You can access your Jekyll site locally at http://localhost:4000, but when you enter that address into your phone, tablet, or other device on your local network, you cannot access the site for testing, designing, and development purposes! How can you circumvent this hurdle? Well, with the use of this special flag to view your Jekyll site on any device on your local network:
 
 ```
@@ -17,5 +17,5 @@ http://192.168.1.156:4000
 ```
 
 ### Gotchas
-- If you set a blog post to a date that hasn't happened yet it wont show up until that date. (Nice way to que posts)
-- Be careful with tab in loop code it might mess up the html output etc. use spaces instead. 
+- If you set a blog.post to a date that hasn't happened yet it wont show up until that date. (Nice way to que posts)
+- Be careful with tab in "loop code" it might mess up the html output etc. use spaces instead. 

@@ -2,7 +2,7 @@
 Jekyll supports posts, like blog posts, that can be used as an ordered type of content.
 Posts must be named very strictly and stored inside the ✨`_posts`✨ folder:
 
-```
+```YAML
 _posts/
   2013-09-26-water-in-martian-dirt.md
   2013-10-06-clouds-on-kepler-7b-mapped.md
@@ -13,7 +13,7 @@ _posts/
 
 ```html
 <ul>
-  {% for post in site.posts %}<!--  loop sites posts -->
+  {% for post in site.posts %}<!-- loop sites posts -->
     <li>
       <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a> <!-- extract url and title (always ref baseURL) -->
       <p>{{post.excerpt}}</p> <!-- extract content -->
