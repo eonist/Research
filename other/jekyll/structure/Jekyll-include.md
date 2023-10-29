@@ -56,7 +56,7 @@ layout: default
 {% include button.html url="/prev/" title="Previous" %}
 {% include button.html url="/next/" title="Next" %}
 ```
-My example above is extremely simple, and probably doesn’t make sense to do for a button (because the include code is practically the same length as the original HTML), but hopefully it communicates the powerful idea behind includes.
+My example above is extremely simple, and probably doesn’t make sense to do for a button (because the include code is practically the same length as the original HTML), but hopefully it communicates the powerful idea behind includes. Use capture if you need to pass jekyll variables into the include var. Its also possible to just write the jeykll variable as is. just dont wrap it in qoutes
 
 ## Relative includes
 - We don’t have to put our includes into the `_includes` folder if we use the include_relative function instead. This function will look inside the same folder as the current file for the include to insert.
