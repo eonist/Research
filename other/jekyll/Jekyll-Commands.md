@@ -59,7 +59,7 @@ On-the-fly-updating (with out the local server feature, this is useful if you do
 sudo jekyll build -w
 ```
 
-On-the-fly-updating with  ✨ local-server ✨ preview (press ctrl-c in terminal to stop)
+On-the-fly-updating with  ✨ local-server ✨ preview (press ctrl-c in terminal to stop) (config change requires reset)
 ```
 sudo jekyll serve
 ```
